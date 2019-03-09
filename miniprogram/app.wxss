@@ -1,0 +1,2306 @@
+/**app.wxss**/
+@import "./dist/common/index.wxss";
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+/* reset */
+.clear{
+	clear:both;
+	font-size:0px;
+	height:0;
+	visibility:hidden;
+	line-height:0;
+    zoom:1;
+}
+.clearfix:after{
+	content:"";
+	display:block;
+	clear:both;
+    height:0;
+    visibility:hidden;
+}
+page {
+  background-color: #f1f1f1;
+  height: 100%;
+  line-height: 1.6;
+  color:#2f3238;
+  font-size: 28rpx;
+  font-family:PingFang Regular,微软雅黑;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: space-between;
+}
+.page-body {
+  width: 100%;
+  flex-grow: 1;
+  overflow-x: hidden;
+}
+.page-section{
+  width: 100%;
+}
+.page-section-gap{
+  box-sizing: border-box;
+}
+.box{
+	padding: 20rpx 100rpx;
+	box-sizing: border-box;
+}
+.box_p20{
+	padding:0 32rpx;
+	box-sizing: border-box;
+}
+.box_p202{
+	padding:32rpx;
+	box-sizing: border-box;
+}
+button::after{
+	border: 0;
+}
+button{
+	display: inline-block;
+	border-radius: 10rpx;
+	border: none;
+}
+.btn_red{
+	width: 100%;
+	background: #fabd48;
+	color: #fff;
+	padding: 0 16rpx;
+	font-size: 30rpx;
+}
+.btn_gre{
+	width: 100%;
+	background: #d1d1d1;
+	color: #333;
+	padding: 0 16rpx;
+	border: none;
+	font-size: 30rpx;
+}
+
+.fr{ float:right;}
+.fl{ float:left;}
+.f30{ font-size: 30rpx;}
+.f34{ font-size: 34rpx;}
+
+.text-center{ text-align: center;}
+.text_right{text-align: right;}
+.org_color{ color: #F9BD48;}
+.blue_color {color: #217FB5;}
+.gre_color{ color: #AAAAAA;}
+.bg_write{ background: #fff;}
+.ft6{color: #989898}
+.ft9{color: #989898}
+.ftorg{color: #FEAA11}
+
+.mt20{ margin-top: 20rpx;}
+.mt44{ margin-top: 44rpx;}
+.mt100{ margin-top: 100rpx;}
+.mt130{ margin-top: 130rpx;}
+.mr20{ margin-right: 20rpx;}
+.mr30{ margin-right: 28rpx;}
+.mr70{ margin-right: 70rpx;}
+.mr50{ margin-right: 50rpx;}
+.mr40{ margin-right: 40rpx;}
+.ml20{ margin-left: 20rpx;}
+.mb20{ margin-bottom: 20rpx;}
+.mb110{ margin-bottom: 110rpx; }
+.mb130{ margin-bottom: 130rpx; }
+
+.img_circle {
+    -webkit-border-radius: 50%;
+    -moz-border-radius:  50%;
+    border-radius:  50%;
+	display:block;
+}
+/*登录注册*/
+.top_img{
+	text-align: center;
+	padding: 80rpx 100rpx;
+}
+.top_img image{
+	width: 112rpx;
+	height: 204rpx;
+}
+.input_list {
+	padding: 32rpx;
+	border-bottom: 2rpx #e2e2e2 solid;
+	background: #fff;
+}
+.login_ren{
+	width: 42rpx;
+	height: 42rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/login-ren.png) no-repeat;
+	background-size: contain;
+	margin-right: 20rpx;
+}
+.login_suo{
+	width: 42rpx;
+	height: 42rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/login-suo.png) no-repeat;
+	background-size: contain;
+	margin-right: 20rpx;
+}
+.icon_ygx {
+	width: 25rpx;
+	height: 25rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_ygz.png) no-repeat;
+	background-size: contain;
+	margin-right: 20rpx;
+}
+.icon_wxz {
+	width: 25rpx;
+	height: 25rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_wxz.png) no-repeat;
+	background-size: contain;
+	margin-right: 20rpx;
+}
+.bor-rig{
+	color: #666;
+	padding-right: 20rpx;
+	margin-right: 20rpx;
+	border-right: 2rpx #e2e2e2 solid;
+}
+.login_zc_wz{
+	padding: 28rpx 32rpx;
+	color: #666;
+	text-align: right;
+}
+.ts_input {
+	position: relative;
+}
+.btn_yz{
+	background: #f2eeeb;
+	color: #999;
+	padding: 4rpx 16rpx;
+	font-size: 26rpx;
+	position: absolute;
+	right:32rpx;
+	margin-top: -64rpx;
+	border:none 0;
+}
+.btn_red2{
+	background: #CF181C;
+	color: #fff;
+	padding:4rpx 60rpx;
+	font-size: 30rpx;
+}
+.box_footr{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+/*弹框*/
+.drop_overlay{
+	display: block;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background:#666;
+	z-index:1001;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+}
+.drop_content{
+	display: block;
+	position: fixed;
+	background-size:contain;
+	top:30%; 
+	z-index:1002;
+	width:600rpx; 
+	overflow:visible; 
+	left:50%; 
+	margin-left:-300rpx; 
+	box-sizing:border-box;
+	border-radius:10rpx; 
+	background:#fff;
+	padding:50rpx 40rpx;
+}
+.drop_content1{
+	display: block;
+	position: fixed;
+	z-index:1002;
+	background:#fff;
+	width:600rpx; 
+	left:50%; 
+  	top: 30%;
+  	margin-left:-300rpx;
+  	border-radius: 10rpx;
+	padding:80rpx 50rpx;
+	box-sizing:border-box;
+}
+/* .drop_content1 input{
+    background: #fff;
+    border: #D8D8D8 2rpx solid;
+    height: 90rpx;
+    line-height: 90rpx;
+    float: left;
+    width: 100%;
+    padding: 0 20rpx;
+    padding-right: 60rpx;
+    box-sizing: border-box;
+    position: relative;
+} */
+.drop_content1 image.cicon_close1{
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  right:70rpx;
+  z-index: 9999;
+  top: 110rpx;
+}
+.drop_content1 button{
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 60rpx;
+  width: 170rpx;
+}
+
+/*用户协议*/
+.xy_title{
+	padding: 32rpx;
+	box-sizing: border-box;
+	font-size: 30rpx;
+	color: #333;
+}
+.xy_list{
+	padding: 0 32rpx;
+	box-sizing: border-box;
+	font-size: 30rpx;
+	color: #777;
+}
+/*首页*/
+.index_bg{
+	width: 100%;
+	height: 1194rpx;
+	background: url(https://mp.hdhra.com/home/image/index_bg.png) no-repeat;
+	background-size: cover;
+	padding: 0 32rpx;
+	box-sizing: border-box;
+}
+.index_bg_op{
+	padding: 22rpx;
+	height: 1071rpx;
+	background: rgba(244,214,164, 1);
+	border-radius: 10rpx;
+	box-sizing: border-box;
+}
+.slide-image {
+	width: 100%;
+	height: 390rpx;
+	border-radius: 10rpx;
+}
+.index_lb{
+	height: 390rpx;
+	border-radius: 10rpx;
+}
+.index_con{
+	padding: 45rpx 0;
+	box-sizing: border-box;
+}
+.index_padd{
+	width: 49%;
+	margin-bottom: 2%;
+}
+.index_kuai{
+	width: 100%;
+	height: 290rpx;
+	background: #fff;
+	display: inline-block;
+	border-radius: 10rpx;
+	text-align: center;
+	padding: 30rpx 0;
+	box-sizing: border-box;
+}
+.index_kuai view{
+	font-size: 30rpx;
+	color: #666;
+}
+.icon_wz{
+	width: 125rpx;
+	height: 125rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_wz.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 20rpx;
+}
+.icon_zb{
+	width: 125rpx;
+	height: 125rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_zb.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 20rpx;
+}
+.icon_bm{
+	width: 125rpx;
+	height: 125rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_bm.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 20rpx;
+}
+.icon_zx{
+	width: 125rpx;
+	height: 125rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_zx.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 20rpx;
+}
+.index_gwen{
+	margin-top: 30rpx;
+	background: #fff;
+}
+.gwen_title{
+	text-align: center;
+	height: 88rpx;
+	line-height: 88rpx;
+	font-size: 30rpx;
+	border-bottom: 2rpx #E6E6E6 solid;
+}
+.gwen_title text{
+	padding: 0 20rpx;
+}
+.com_con{
+	width: 682rpx;
+	padding-left: 122rpx;
+	box-sizing: border-box;
+  text-align: left;
+}
+.comment_list{
+	padding: 30rpx 32rpx;
+	background: #fff;
+	border-bottom: 2rpx #E6E6E6 solid;
+	box-sizing: border-box;
+  text-align: center;
+}
+.com_img image{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 100rpx;
+}
+.con_tit_name{
+	font-size: 30rpx;
+	color: #333;
+}
+.com_con_ly{
+	font-size: 26rpx;
+	color: #666666;
+	line-height: 40rpx;
+	margin-top: 22rpx;
+}
+/* .com_pres{
+	text-align: right;
+	color: #F68A0A;
+} */
+.icon_address{
+	width: 18rpx;
+	height: 22rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_address.png) no-repeat;
+	background-size: contain;
+	margin-right: 14rpx;
+}
+.icon_home{
+	width: 42rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_home.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+}
+.icon_homehover{
+	width: 42rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_homehover.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+}
+.icon_yuekan{
+	width: 42rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_yuekan.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+}
+.icon_yuekanhover{
+	width: 42rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_yuekanhover.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+}
+.icon_person{
+	width: 42rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_person.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+}
+.icon_personhover{
+	width: 42rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_personhover.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+}
+.icon_mess{
+	width: 42rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_mess.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+}
+.icon_messhover{
+	width: 42rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_messhover.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+}
+.index_foot{
+	padding: 14rpx 0;
+	box-sizing: border-box;
+	background: #fff;
+	border-top: 2rpx #e2e2e2 solid;
+}
+.foot_width{
+	width: 33.333%;
+	text-align: center;
+}
+.foot_width4{
+	width: 25%;
+	text-align: center;
+}
+/*消息*/
+.mess_con{
+	padding: 0 32rpx;
+	box-sizing: border-box;
+}
+.mess_time{
+	text-align: center;
+	margin: 65rpx 0 33rpx 0;
+}
+.mess_time text{
+	padding: 11rpx 15rpx;
+	box-sizing: border-box;
+	background: #DBDBDB;
+	color: #fff;
+	font-size: 22rpx;
+}
+.mess_link{
+	background: #fff;
+	padding: 23rpx;
+	font-size: 24rpx;
+	line-height: 40rpx;
+	min-height: 210rpx;
+}
+/*精彩文章*/
+.w95{ width: 95%;}
+.w5{ width: 5%;}
+.mt80{ margin-top: 80rpx;}
+.ft26{
+	font-size: 26rpx;
+	color: #666;
+}
+.ftorg_hover{
+	font-size: 30rpx;
+	color: #F68A0A;
+}
+.dh_top{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	box-sizing: border-box;
+	height: 80rpx;
+	line-height: 80rpx;
+	padding: 0 30rpx;
+	background: #E6E6E6;
+	z-index: 9;
+}
+.wenz_wz{
+	width: 25%;
+}
+ .icon_add{
+	width: 28rpx;
+	height: 28rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_add.png) no-repeat;
+	background-size: contain;
+} 
+.icon_downjian1{
+	width: 28rpx;
+	height: 28rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_downjian.png) no-repeat;
+	background-size: contain;
+}
+.wenz_con{
+	background: #fff;
+	padding: 30rpx;
+	box-sizing: border-box;
+	margin-bottom: 20rpx;
+}
+.wenz_con image{
+	width: 690rpx;
+	height: 340rpx;
+	margin-bottom: 32rpx;
+}
+.wenz_con_tit{
+	font-size: 34rpx;
+	color: #333333;
+}
+.wenz_con_foot{
+	margin-top: 40rpx;
+	color: #a1a1a1;
+	font-size: 24rpx;
+}
+.icon_yan{
+	width: 25rpx;
+	height: 15rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_yan.png) no-repeat;
+	background-size: contain;
+}
+.wenz_zi{
+	font-size: 20rpx;
+	margin-left: 8rpx;
+}
+.wenz_tan_foot{
+	text-align: center;
+	margin-top: 20rpx;
+}
+.icon_downjian{
+	width: 27rpx;
+	height: 15rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_downjian.png) no-repeat;
+	background-size: contain;
+}
+.icon_upjian{
+	width: 27rpx;
+	height: 15rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_up.png) no-repeat;
+	background-size: contain;
+}
+.wenz_tan{
+	width: 100%;
+	top: 0;
+	position: fixed;
+	padding: 30rpx;
+	background: rgba(255, 255, 255, .95);
+	box-sizing: border-box;
+}
+.tan_org_bg{
+	display: inline-block;
+	background: #FBB63C;
+	color: #fff;
+	padding: 18rpx 30rpx;
+	border-radius: 10rpx;
+	margin: 30rpx 25rpx 0 0;
+	font-size: 24rpx;
+}
+.tan_gre_bg{
+	display: inline-block;
+	background: #EDEDED;
+	color: #666;
+	padding: 10rpx 14rpx;
+	border-radius: 6rpx;
+	margin: 30rpx 25rpx 0 0;
+	font-size: 24rpx;
+}
+.gwen_bq .zxlb{
+	padding: 10rpx 14rpx;
+}
+.gwen_bq .zxlb:nth-child(7n){
+  margin-right: 0;
+}
+/*文章详情*/
+.wenz_info_tit{
+	background: #fff;
+	padding: 50rpx 32rpx;
+	box-sizing: border-box;
+}
+.wz_info_t{
+	font-size: 34rpx;
+	color: #333;
+}
+.wz_info_time{
+	font-size: 24rpx;
+	color: #a1a1a1;
+	margin: 24rpx 0;
+}
+.wenz_info_tit image{
+	width: 100%;
+	height: 340rpx;
+}
+.wz_info_P{
+	color: #666;
+	font-size: 24rpx;
+	margin: 20rpx 0;
+} 
+.wz_org_bg{
+	display: inline-block;
+	background: #FBB63C;
+	color: #fff;
+	padding: 12rpx 30rpx;
+	border-radius: 8rpx;
+	font-size: 24rpx;
+}
+.wz_info_flag{
+	font-size: 26rpx;
+	margin-top: 20rpx;
+	color: #333;
+}
+.wz_info_foot{
+	background: #fff;
+	border-top: 2rpx #e2e2e2 solid;
+	padding: 25rpx 0;
+	box-sizing: border-box;
+}
+.info_foot {
+	width: 33%;
+	text-align: center;
+	border-right: 2rpx #e2e2e2 solid;
+}
+.info_foot:last-child{
+	border-right: none;
+}
+.icon_xin{
+	width: 24rpx;
+	height: 20rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_xin.png) no-repeat;
+	background-size: contain;
+	margin-right: 18rpx;
+}
+.icon_xinhover{
+	width: 24rpx;
+	height: 20rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_xinhover.png) no-repeat;
+	background-size: contain;
+	margin-right: 18rpx;
+}
+.icon_wz_mess{
+	width: 25rpx;
+	height: 23rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_wz_mess.jpg) no-repeat;
+	background-size: contain;
+	margin-right: 18rpx;
+}
+.icon_wz_ren{
+	width: 21rpx;
+	height: 21rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_wz_ren.png) no-repeat;
+	background-size: contain;
+	margin-right: 18rpx;
+}
+/*直播微课*/
+.zb_kuai{
+	padding: 32rpx;
+	box-sizing: border-box;
+	background: #fff;
+	margin-bottom: 20rpx;
+}
+.zb_sp{
+	height: 340rpx;
+	position: relative;
+	box-sizing: border-box;
+}
+.zb_sp image{
+	width: 100%;
+	height: 340rpx;
+  display: block;
+}
+.icon_bf{
+	width: 76rpx;
+	height: 76rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_bf.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 40%;
+	left: 45%;
+}
+.icon_bf2{
+	width: 50rpx;
+	height: 50rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_bf.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 35%;
+	left: 45%;
+}
+.zb_p{
+	width: 100%;
+	color: #fff;
+	position: absolute;
+	bottom: 0rpx;
+	background: rgba(0, 0, 0, .3);
+	padding: 12rpx 25rpx;
+	font-size: 26rpx;
+	box-sizing: border-box;
+}
+.zb_foot{
+	margin-top: 26rpx;
+}
+.zb_add{
+	color: #A8A8A8;
+	font-size: 20rpx;
+	margin-top: 16rpx;
+}
+/*课程介绍*/
+.zb_info_top{
+	padding: 32rpx;
+	background: #fff;
+}
+.zb_left_img {
+	width: 305rpx;
+	height: 235rpx;
+	box-sizing: border-box;
+	position: relative;
+}
+.zb_left_img image{
+	width: 305rpx;
+	height: 235rpx;
+}
+.zb_info_right {
+	width: 360rpx;
+	padding-left: 335rpx;
+}
+.zb_right_tit {
+	font-size: 28rpx;
+	color: #333;
+	line-height: 40rpx;
+	margin-bottom: 16rpx;
+}
+.zb_right_add{
+	font-size: 24rpx;
+	color: #A1A1A1;
+	margin: 10rpx 0;
+}
+.zb_info_time{
+	font-size: 20rpx;
+	color: #a1a1a1;
+	line-height: 30rpx;
+}
+.icon_lb{
+	width: 28rpx;
+	height: 28rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_lb.png) no-repeat;
+	background-size: contain;
+	margin-right: 14rpx;
+}
+.zb_lb{
+	font-size: 22rpx;
+	background: #fff;
+	padding: 0 32rpx 20rpx 32rpx;
+	box-sizing: border-box;
+	color: #F68A0A;
+	border-bottom: 2rpx #e2e2e2 solid;
+}
+.zb_jian{
+	padding: 32rpx;
+	box-sizing: border-box;
+	background: #fff;
+}
+.zb_jian_p{
+	font-size: 24rpx;
+	line-height: 36rpx;
+	color: #666;
+}
+.zb_box{
+	background: #fff;
+	padding: 32rpx;
+	box-sizing: border-box;
+}
+/*活动*/
+.icon_bm_ing{
+	width: 130rpx;
+	height: 120rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/bm_ing_img.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.icon_bm_end{
+	width: 130rpx;
+	height: 120rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/bm_end_img.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.icon_act_ing{
+	width: 130rpx;
+	height: 120rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/act_ing_img.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.icon_act_end{
+	width: 130rpx;
+	height: 120rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/act_end_img.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.icon_time{
+	width: 30rpx;
+	height: 30rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_time.png) no-repeat;
+	background-size: contain;
+	margin-right: 14rpx;
+}
+.act_info_top{
+	background: #fff;
+	padding: 20rpx 32rpx;
+	box-sizing: border-box;
+}
+.act_info_top image{
+	width: 100%;
+	height: 340rpx;
+}
+.act_top_tit{
+	padding: 32rpx 0 24rpx; 
+	border-bottom: 1rpx #e2e2e2 solid;
+}
+.ft30{
+	font-size: 30rpx;
+	color: #333;
+}
+.act_list{
+	color: #666;
+	font-size: 24rpx;
+	padding: 30rpx 0;
+	box-sizing: border-box;
+	border-bottom:  1rpx #e2e2e2 solid;
+}
+.act_list:last-child{
+	border-bottom:none;
+}
+.icon_bm_time{
+	width: 29rpx;
+	height: 29rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_bm_time.png) no-repeat;
+	background-size: contain;
+	margin-top: 4rpx;
+}
+.icon_act_address{
+	width: 29rpx;
+	height: 29rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_act_address.png) no-repeat;
+	background-size: contain;
+	margin-top: 4rpx;
+}
+.icon_act_ren{
+	width: 29rpx;
+	height: 29rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_act_ren.png) no-repeat;
+	background-size: contain;
+	margin-top: 4rpx;
+}
+.icon_ed_time{
+	width: 29rpx;
+	height: 29rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_ed_time.png) no-repeat;
+	background-size: contain;
+	margin-top: 4rpx;
+}
+.icon_heart{
+	width: 24rpx;
+	height: 24rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_xin.png) no-repeat;
+	background-size: contain;
+	margin-right: 4rpx;
+}
+.icon_hearthover{
+	width: 24rpx;
+	height: 24rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_xinhover.png) no-repeat;
+	background-size: contain;
+	margin-right: 4rpx;
+}
+.act_list_p{
+	width: 650rpx;
+	padding-left: 48rpx;
+}
+.act_name{
+	font-size: 24rpx;
+	color: #333;
+	margin-bottom: 24rpx;
+}
+.zb_jian image{
+	width: 100%;
+	height: 340rpx;
+	margin: 24rpx 0;
+}
+.act_foot{
+	background: #fff;
+	padding: 0 32rpx 25rpx;
+	box-sizing: border-box;
+}
+.act_foot_left{
+	text-align: center;
+	width: 30%;
+	font-size: 24rpx;
+	color: #989898;
+	padding-top: 20rpx;
+}
+.act_foot_right{
+	width: 70%;
+}
+.btn_bm{
+	width: 100%;
+	border-radius: 0;
+	background: #F9BD48;
+	color: #fff;
+	font-size: 30rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+}
+.btn_bm_gre{
+	width: 100%;
+	border-radius: 0;
+	background: #e1e1e1;
+	color: #a1a1a1;
+	font-size: 30rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+}
+/*活动详情-线下报名*/
+.xx_info_top{
+	padding: 32rpx;
+	background: #fff;
+}
+.xx_left_img {
+	width: 300rpx;
+	height: 170rpx;
+	box-sizing: border-box;
+}
+.xx_left_img image{
+	width: 300rpx;
+	height: 170rpx;
+}
+.xx_info_right {
+	width: 365rpx;
+	padding-left: 335rpx;
+}
+.xx_right_tit {
+	font-size: 28rpx;
+	color: #333;
+	line-height: 40rpx;
+	margin-bottom: 18rpx;
+}
+.xx_right_add{
+	font-size: 24rpx;
+	color: #A1A1A1;
+	margin-bottom: 32rpx;
+}
+.xx_btn_jian, .xx_btn_add{
+	width: 40rpx;
+	height: 40rpx;
+	line-height: 40rpx;
+	text-align: center;
+	display: inline-block;
+	border: 2rpx #e2e2e2 solid;
+	color: #666;
+}
+.xx_btn_input{
+	text-align: center;
+	width: 132rpx;
+	height: 40rpx;
+	line-height: 40rpx;
+	min-height: 40rpx;
+	border: 2rpx #e2e2e2 solid;
+	margin: 0 15rpx;
+	color: #F9BC48;
+}
+.xx_delet{
+	background: #E6E6E6;
+	height: 95rpx;
+	line-height: 95rpx;
+	color: #333;
+	font-size: 30rpx;
+	padding: 0 32rpx;
+	box-sizing: border-box;
+}
+.icon_delet{
+	width: 38rpx;
+	height: 38rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_delet.png) no-repeat;
+	background-size: contain;
+	margin-top: 30rpx;
+}
+.xx_list{
+	background: #fff;
+	padding: 0 0 0 32rpx ;
+	margin-bottom: 20rpx;
+}
+.xx_name, .xx_phone{
+	height: 100rpx;
+	line-height: 100rpx;
+}
+.xx_bor{
+	margin-left: 57rpx;
+	border-bottom: 2rpx #e2e2e2 solid;
+}
+.icon_kwx{
+	width: 32rpx;
+	height: 32rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_kwx.png) no-repeat;
+	background-size: contain;
+	margin-right: 25rpx;
+	margin-top: 36rpx;
+}
+.icon_kyx{
+	width: 32rpx;
+	height: 32rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_kyx.png) no-repeat;
+	background-size: contain;
+	margin-right: 25rpx;
+	margin-top: 36rpx;
+}
+/*顾问*/
+.gwen_top{
+	background: #fff;
+	padding: 24rpx 32rpx;
+	box-sizing: border-box;
+}
+.icon_sech{
+	width: 24rpx;
+	height:24rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_sech.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	left: 26rpx;
+	top: 18rpx;
+}
+.gwen_input{
+	position: relative;
+	height: 60rpx;
+}
+.gwen_input input{
+	width: 620rpx;
+	height: 60rpx;
+	color: #A1A1A1;
+	background: #EDEDED;
+	border-radius: 50rpx;
+	padding: 0 20rpx 0 62rpx;
+	box-sizing: border-box;
+}
+.btn_sech{
+	background: #fff;
+	font-size: 26rpx;
+	padding: 0;
+	margin-left: 15rpx;
+	color: #A1A1A1;
+}
+.gwen_flei{
+	background: #fff;
+	padding: 35rpx 0;
+	box-sizing: border-box;
+	border-bottom: 2rpx #e6e6e6 solid;
+	position: relative;
+}
+.gwen_city{
+	width: 33%;
+	text-align: center;
+	font-size: 26rpx;
+	border-right: 2rpx #e6e6e6 solid;
+}
+.gwen_city:last-child{
+	border-right: none;
+}
+.gwen_bq{
+	background: #fff;
+	padding: 32rpx;
+	box-sizing: border-box;
+}
+.gwen_bq_tit{
+	color: #a1a1a1;
+	font-size: 26rpx;
+	margin: 10rpx 0;
+}
+.icon_down{
+	width: 20rpx;
+	height:11rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_down.png) no-repeat;
+	background-size: contain;
+	margin-left: 20rpx;
+}
+.icon_downhover{
+	width: 20rpx;
+	height:11rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_downhover.png) no-repeat;
+	background-size: contain;
+	margin-left: 20rpx;
+}
+.icon_up{
+	width: 20rpx;
+	height:11rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_up.png) no-repeat;
+	background-size: contain;
+	margin-left: 20rpx;
+}
+.icon_uphover{
+	width: 20rpx;
+	height:11rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_uphover.png) no-repeat;
+	background-size: contain;
+	margin-left: 20rpx;
+}
+.icon_all{
+	width: 28rpx;
+	height: 28rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_xin.png) no-repeat;
+	background-size: contain;
+	margin-right: 20rpx;
+}
+.icon_sex{
+	width: 35rpx;
+	height: 35rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_wxz.png) no-repeat;
+	background-size: contain;
+	margin-right: 20rpx;
+}
+.icon_sexhover{
+	width: 35rpx;
+	height: 35rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_sexhover.png) no-repeat;
+	background-size: contain;
+	margin-right: 20rpx;
+}
+/*顾问城市 性别弹出框*/
+.gwen_tan{
+	position: absolute;
+	width: 100%;
+	top: 250rpx;
+	background: #fff;
+	border-bottom: 2rpx #e6e6e6 solid;
+}
+.gwen_tan_city{
+	padding: 38rpx 77rpx;
+	border-bottom: 2rpx #e6e6e6 solid;
+}
+.gwen_tan_city:last-child{
+	border-bottom: none;
+}
+.gwen_tan_p{
+	margin-left: 50rpx;
+	color: #F68A0A;
+	font-size: 22rpx;
+	line-height: 30rpx;
+}
+.gwen_tan_sex{
+	padding: 20rpx 32rpx;
+	padding-left: 320rpx;
+	line-height: 60rpx;
+	font-size: 28rpx;
+	color: #333;
+	box-sizing: border-box;
+}
+.gwen_kf{
+	position: fixed;
+	bottom: 350rpx;
+	right: 0;
+	width: 116rpx;
+	height: 119rpx;
+}
+.gwen_kf image{
+	width: 116rpx;
+	height: 119rpx;
+}
+/*顾问-介绍*/
+.gw_js_top{
+	background: #fff;
+	padding: 55rpx 32rpx;
+	box-sizing: border-box;
+}
+.gw_js_tou{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 100rpx;
+	margin-top: 30rpx;
+}
+.gw_js_tit{
+	font-size: 30rpx;
+	color: #333;
+}
+.gw_js_right{
+	padding-left: 125rpx;
+}
+.gw_js_org{
+	color: #F68A0A;
+	margin: 20rpx 0;
+}
+.gw_js_mess{
+	font-size: 26rpx;
+	color: #666;
+}
+.icon_js_messhover{
+	width: 30rpx;
+	height: 30rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_messhover.png) no-repeat;
+	background-size: contain;
+	margin-right: 12rpx;
+}
+
+.show{
+	display: block;
+}
+.hidden{
+	display: none;
+}
+.gw_list_bq{
+	border: 2rpx #999 solid;
+	padding: 11rpx 14rpx;
+	font-size: 22rpx;
+	color: #A1A1A1;
+	display: inline-block;
+	margin-right: 22rpx;
+	margin-bottom: 22rpx;
+	border-radius: 8rpx;
+}
+/* .gw_list_bq:nth-child(2n){
+	border: 2rpx #5061e1 solid;
+}
+.gw_list_bq:nth-child(3n){
+	border: 2rpx #099c63 solid;
+}
+.gw_list_bq:nth-child(4n){
+	border: 2rpx #b50c10 solid;
+}
+.gw_list_bq:nth-child(5n){
+	border: 2rpx #081d9f solid;
+}
+.gw_list_bq:nth-child(6n){
+	border: 2rpx #c17eec solid;
+} */
+.gw_list_kuai{
+	padding: 32rpx;
+	box-sizing: border-box;
+	background: #fff;
+}
+.gw_list_tit{
+	font-size: 30rpx;
+	color: #333;
+	margin-bottom: 36rpx;
+}
+.gw_list_tit{
+	font-size: 30rpx;
+	color: #333;
+	text-align: center;
+}
+.gw_list_p{
+	font-size: 24rpx;
+	color: #666;
+	line-height: 36rpx;
+}
+.gw_footer{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background: #fff;
+	border-top: 2rpx #e6e6e6 solid;
+}
+.gw_btn{
+	text-align: center;
+	width: 50%;
+	height: 90rpx;
+	color: #666;
+}
+.gw_btn2{
+	text-align: center;
+	width: 50%;
+	height: 90rpx;
+	line-height: 90rpx;
+	color: #fff;
+	background: #F9BC48;
+}
+.icon_sc{
+	width: 27rpx;
+	height: 22rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_xin.png) no-repeat;
+	background-size: contain;
+	margin: 8rpx 0;
+}
+.icon_schover{
+	width: 27rpx;
+	height: 22rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_xinhover.png) no-repeat;
+	background-size: contain;
+	margin: 8rpx 0;
+}
+.ft20{
+	color: #a1a1a1;
+	font-size: 20rpx;
+}
+/*开放时段*/
+.gw_kf_time{
+	background: #fff;
+	padding: 32rpx 32rpx 0;
+	box-sizing: border-box;
+}
+.gw_time_bg{
+	background: #fff;
+	padding: 32rpx 19rpx;
+	box-sizing: border-box;
+}
+.w88{
+	width: 88rpx;
+	margin-right: 16rpx;
+	text-align: center;
+}
+.w88:last-child{
+	margin-right: 0;
+}
+.icon_gw_ren{
+	width: 28rpx;
+	height: 28rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_gw_ren.png) no-repeat;
+	background-size: contain;
+	margin: 0 8rpx;
+}
+.icon_gw_phone{
+	width: 28rpx;
+	height: 28rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_gw_phone.png) no-repeat;
+	background-size: contain;
+	margin: 0 8rpx;
+}
+.icon_gw_mess{
+	width: 28rpx;
+	height: 28rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_gw_mess.png) no-repeat;
+	background-size: contain;
+	margin: 0 8rpx;
+}
+.gw_time_num2{
+	margin-bottom: 10rpx;
+}
+.gw_time_grebg{
+	width: 75rpx;
+	height: 75rpx;
+	background: #f2f2f2;
+	text-align: center;
+	border-radius: 100rpx;
+	font-size: 18rpx;
+	margin: 8rpx 0;
+	color: #a1a1a1;
+}
+.gw_time_orgbg{
+	width: 75rpx;
+	height: 75rpx;
+	background: #F9BC48;
+	text-align: center;
+	border-radius: 100rpx;
+	color: #fff;
+	font-size: 18rpx;
+	margin: 8rpx 0;
+}
+.gw_day_orgbg{
+	width: 75rpx;
+	height: 75rpx;
+	background: #F9BC00;
+	text-align: center;
+	border-radius: 100rpx;
+	color: #fff;
+	font-size: 18rpx;
+	margin: 8rpx 0;
+}
+.gw_time_num{
+	font-size: 24rpx;
+	padding: 6rpx 0 0;
+}
+.gw_time_fang{
+	width: 88rpx;
+	background: #F2F2F2;
+	padding: 4rpx;
+	box-sizing: border-box;
+	color: #F9BC48;
+	margin: 10rpx 0;
+}
+.gw_time_ren{
+	width: 18rpx;
+	height: 21rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/gw_time_ren.png) no-repeat;
+	background-size: contain;
+	margin-right: 8rpx;
+}
+.gw_time_phone{
+	width: 19rpx;
+	height: 19rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/gw_time_phone.png) no-repeat;
+	background-size: contain;
+	margin-right: 8rpx;
+}
+.gw_time_mess{
+	width: 21rpx;
+	height: 21rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/gw_time_mess.png) no-repeat;
+	background-size: contain;
+}
+/*选择咨询时间及方式*/
+.icon_ygx2 {
+	width: 35rpx;
+	height: 35rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_yxz.png) no-repeat;
+	background-size: contain;
+	margin-right: 18rpx;
+}
+.icon_wxz2 {
+	width: 35rpx;
+	height: 35rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_wxz.png) no-repeat;
+	background-size: contain;
+	margin-right: 18rpx;
+}
+.ask_time{
+	background: #fff;
+	padding: 32rpx;
+	box-sizing: border-box;
+}
+.ask_time_gre, .ask_time_org{
+	display: inline-block;
+	padding: 20rpx 50rpx;
+	border-radius: 10rpx;
+	margin-right: 16rpx;
+	font-size: 24rpx;
+}
+.ask_time_org{
+	background: #F9BD48;
+	color: #fff;
+	
+}
+.ask_time_gre{
+	background: #F2F2F2;
+	color: #919191;
+}
+.icon_rili{
+	width: 43rpx;
+	height: 43rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_rili.png) no-repeat;
+	background-size: contain;
+	margin-right: 18rpx;
+}
+.ask_foot{
+	background: #F9BD48;
+	color: #fff;
+	/* padding: 20rpx 0; */
+}
+.ask_foot_left{
+	width: 560rpx;
+	font-size: 20rpx;
+	line-height: 26rpx;
+	padding: 20rpx 32rpx;
+	box-sizing: border-box;
+	border-right: 2rpx #E49E15 solid;
+}
+.ask_foot_right{
+	width: 190rpx;
+	text-align: center;
+  line-height: 86rpx;
+}
+
+/*填写咨询资料*/
+.write_list{
+	padding: 32rpx 32rpx 0;
+	box-sizing: border-box;
+}
+.write_list_tit{
+	font-size: 30rpx;
+	color: #333;
+	margin-bottom: 18rpx;
+} 
+.write_list .write_list_input {
+	width: 100%;
+	height: 90rpx;
+	border: #e6e6e6 2rpx solid;
+	padding: 0 20rpx;
+	box-sizing: border-box;
+}
+.write_list_con{
+	margin-bottom: 34rpx;
+}
+.write_list_con:last-child{
+	margin-bottom: 0;
+}
+.write_con_left{
+	text-align: center;
+	width: 156rpx;
+	height: 90rpx;
+	line-height: 90rpx;
+	font-size: 26rpx;
+	color: #666;
+}
+.write_con_right{
+	width: 524rpx;
+	box-sizing: border-box;
+}
+.picker{
+	width: 100%;
+	height: 50rpx;
+	line-height: 50rpx;
+	border: #e6e6e6 1rpx solid;
+	padding: 0 0rpx;
+	box-sizing: border-box; 
+	color: #a1a1a1;
+}
+.wrtie_foot{
+	padding: 32rpx;
+	box-sizing: border-box;
+	margin-top: 38rpx;
+}
+.write_tan,.write_tan_p{
+	text-align: center;
+}
+.write_tan image{
+	width: 72rpx;
+	height: 72rpx;
+}
+.write_tan_p{
+	font-size: 34rpx;
+	color: #333;
+	margin-top: 30rpx;
+}
+/*填写个人基本信息*/
+.write_info_top{
+	padding-left: 20rpx;
+}
+.write_info_list{
+	padding: 32rpx 0;
+	box-sizing: border-box;
+	border-bottom: 2rpx #e6e6e6 solid;
+}
+.write_info_text{
+	width: 142rpx;
+	color: #666;
+}
+.write_info_right{
+	width: 535rpx;
+	padding-left:172rpx; 
+}
+.write_info_span{
+	margin-right: 37rpx;
+	font-size: 22rpx;
+	color: #666;
+}
+.write_info_span:last-child{
+	margin-right:0;
+}
+.icon_yxz3 {
+	width: 25rpx;
+	height: 25rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_yxz.png) no-repeat;
+	background-size: contain;
+	margin-right: 16rpx;
+}
+.icon_yxz4 {
+	width: 25rpx;
+	height: 25rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_yxz1.png) no-repeat;
+	background-size: contain;
+	margin-right: 16rpx;
+}
+.icon_wxz3 {
+	width: 25rpx;
+	height: 25rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_wxz.png) no-repeat;
+	background-size: contain;
+	margin-right: 16rpx;
+}
+.icon_wxz4 {
+	width: 25rpx;
+	height: 25rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_wxz1.png) no-repeat;
+	background-size: contain;
+	margin-right: 16rpx;
+}
+.picker2{
+	width: 100%;
+	height: 60rpx;
+	line-height: 60rpx;
+	border: #e6e6e6 2rpx solid;
+	padding: 0 20rpx;
+	box-sizing: border-box;
+	color: #a1a1a1;
+}
+/*个人中心*/
+.per_top{
+	width: 100%;
+	height: 342rpx;
+	background: url(https://mp.hdhra.com/home/image/per_img_bg.png) no-repeat;
+	background-size: cover;
+	text-align: center;
+	padding: 32rpx;
+	color: #fff;
+	box-sizing: border-box;
+}
+.per_top image{
+	width: 122rpx;
+	height: 122rpx;
+	border: 2rpx #fff solid;
+	border-radius: 100rpx;
+	margin: 24rpx 0;
+}
+.per_top_name{
+	font-size: 30rpx;
+}
+.per_top_phone{
+	font-size: 24rpx;
+}
+.box_r20{
+	padding: 0 20rpx 0 0;
+}
+.icon_id{
+	width: 41rpx;
+	height: 43rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_id.png) no-repeat;
+	background-size: contain;
+	margin-top: 35rpx;
+}
+.icon_info{
+	width: 47rpx;
+	height: 40rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_info.png) no-repeat;
+	background-size: contain;
+	margin-top: 35rpx;
+}
+.icon_active{
+	width: 43rpx;
+	height: 43rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_active.png) no-repeat;
+	background-size: contain;
+	margin-top: 30rpx;
+}
+.icon_line{
+	width: 37rpx;
+	height: 37rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_line.png) no-repeat;
+	background-size: contain;
+	margin-top: 40rpx;
+}
+.icon_rightjian{
+	width: 12rpx;
+	height: 21rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_rightjian.png) no-repeat;
+	background-size: contain;
+	margin-left: 10rpx;
+}
+
+.icon_orders{
+	width: 31rpx;
+	height: 35rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_orders.png) no-repeat;
+	background-size: contain;
+	margin-top: 35rpx;
+}
+.icon_mess1{
+	width: 41rpx;
+	height: 45rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_mess.png) no-repeat;
+	background-size: contain;
+	margin-top: 35rpx;
+}
+.icon_coll{
+	width: 42rpx;
+	height: 37rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_coll.png) no-repeat;
+	background-size: contain;
+	margin-top: 35rpx;
+}
+.icon_kphone{
+	width: 45rpx;
+	height: 41rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_kphone.png) no-repeat;
+	background-size: contain;
+	margin-top: 32rpx;
+}
+.icon_about{
+	width: 44rpx;
+	height: 44rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_about.png) no-repeat;
+	background-size: contain;
+	margin-top: 35rpx;
+}
+.icon_rightjian{
+	width: 12rpx;
+	height: 21rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_rightjian.png) no-repeat;
+	background-size: contain;
+	margin-left: 10rpx;
+}
+.per_list_span{
+	font-size: 24rpx;
+	color: #a1a1a1;
+}
+/*个人身份验证*/
+.per_id{
+	width: 49%;
+	text-align: center;
+	font-size: 26rpx;
+	border-right: 2rpx #e6e6e6 solid;
+}
+.per_id:last-child{
+	border-right: none;
+}
+.per_id_email{
+	padding: 32rpx;
+	box-sizing: border-box;
+}
+.per_id_yz{
+	color: #333;
+	margin-bottom: 25rpx;
+}
+.per_id_input input{
+	width: 100%;
+	height: 90rpx;
+	margin: 25rpx 0;
+	padding: 0 20rpx;
+	box-sizing: border-box;
+	border: 2rpx #e6e6e6 solid;
+}
+.per_time_gre, .per_time_org{
+	width: 300rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	border-radius: 10rpx;
+	margin-right:34rpx;
+	font-size: 30rpx;
+	text-align: center;
+	box-sizing: border-box;
+}
+.per_time_gre2, .per_time_org2{
+	width: 190rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	border-radius: 10rpx;
+	margin-right:34rpx;
+	font-size: 30rpx;
+	text-align: center;
+	box-sizing: border-box;
+}
+.per_time_org, .per_time_org2{
+	background: #F9BD48;
+	color: #fff;
+}
+.per_time_gre, .per_time_gre2{
+	background: #F2F2F2;
+	color: #919191;
+}
+.ft24{
+	font-size: 24rpx;
+	line-height: 40rpx;
+}
+/*我的收藏*/
+.mt15{margin-top: 15rpx;}
+.my_list{
+	background: #e6e6e6;
+	height: 80rpx;
+	line-height: 80rpx;
+	box-sizing: border-box;
+	border-bottom: 2rpx #e6e6e6 solid;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.my_list_fen{
+	width: 33.33%;
+	text-align: center;
+	font-size: 26rpx;
+}
+/* .icon_xinhover{
+	width: 24rpx;
+	height: 21rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_xinhover.png) no-repeat;
+	background-size: contain;
+	margin-left: 35rpx;
+} */
+/*活动评价*/
+.ft24{
+	font-size: 24rpx;
+	color: #F9BC48;
+}
+.act_pj_con{
+	padding: 32rpx;
+	box-sizing: border-box;
+}
+.act_pj_tit{
+	font-size: 30rpx;
+	color: #333;
+	margin: 8rpx 0;
+}
+.act_pj_icon{
+	margin: 28rpx 0;
+}
+.icon_starhover{
+	width: 40rpx;
+	height: 40rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_starhover.png) no-repeat;
+	background-size: contain;
+	margin-left: 15rpx;
+}
+.icon_star{
+	width: 40rpx;
+	height: 40rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_star.png) no-repeat;
+	background-size: contain;
+	margin-left: 15rpx;
+}
+.act_pj_input textarea{
+	width: 100%;
+	height: 180rpx;
+	border: 2rpx #e6e6e6 solid;
+	padding: 20rpx;
+	box-sizing: border-box;
+	margin-top: 20rpx 0;
+}
+/*活动评价追加评论*/
+.addpj_bg{
+	background: #f2f2f2;
+	height: 80rpx;
+	line-height: 80rpx;
+	padding: 0 32rpx;
+	font-size: 26rpx;
+	color: #666;
+}
+.addpj_con{
+	background: #fff;
+	padding: 32rpx 0 0 32rpx;
+	box-sizing: border-box;
+}
+.addpj_list{
+	padding: 20rpx 20rpx 20rpx 0;
+	box-sizing: border-box;
+	border-bottom: 2rpx #e6e6e6 solid;
+	color: #A8A8A8;
+}
+.addpj_list:last-child{
+	border-bottom: none;
+}
+.addpj_list_tit{
+	font-size: 24rpx;
+	line-height: 38rpx;
+}
+.addpj_list_time{
+	text-align: right;
+	font-size: 20rpx;
+}
+/*线下活动报名*/
+.act_xx_con{
+	padding: 32rpx 0 0;
+	box-sizing: border-box;
+}
+.act_xx_left{
+	width: 500rpx;
+}
+.act_left_p{
+	color: #a8a8a8;
+	font-size: 20rpx;
+	line-height: 36rpx;
+}
+.act_xx_org{
+	width: 180rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	border-radius: 10rpx;
+	font-size: 26rpx;
+	text-align: center;
+	background: #F9BD48;
+	color: #fff;
+}
+/*咨询订单*/
+.ask_order_top{
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.ask_order_con, .ask_order_top{
+	background: #fff;
+	padding: 35rpx 0;
+	box-sizing: border-box;
+	border-bottom: 2rpx #e6e6e6 solid;
+}
+.ask_order_list, .gwen_city2{
+	width: 25%;
+	text-align: center;
+	font-size: 26rpx;
+	border-right: 2rpx #e6e6e6 solid;
+	box-sizing: border-box;
+}
+.gwen_city2{
+	color: #666;
+	border-right:none;
+}
+.ask_order_list:last-child{
+	border-right: none;
+}
+.ask_order_tit{
+	font-size: 24rpx;
+	color: #666;
+	margin-bottom: 14rpx;
+}
+.ask_p_list{
+	color: #a8a8a8;
+	font-size: 20rpx;
+}
+.ask_wri_bg, .ask_org_bg{
+	display: inline-block;
+	width: 162rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	border-radius: 8rpx;
+	font-size: 26rpx;
+	text-align: center;
+	margin-left: 30rpx;
+}
+.ask_wri_bg:last-child, .ask_org_bg:last-child{
+	margin-left: 0;
+}
+.ask_wri_bg{
+	background: #fff;
+	color: #666;
+	border: 2rpx #e6e6e6 solid;
+}
+.ask_org_bg{
+	background: #F9BC48;
+	color: #fff;
+	border: 2rpx #F9BC48 solid;
+}
+/*我的课程*/
+.icon_img_end{
+	width: 112rpx;
+	height: 99rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/img_bm_end.png) no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+/*订单详情*/
+.order_infos{
+	background: #fff;
+	padding: 32rpx;
+	box-sizing: border-box;
+}
+.order_infos_list{
+	line-height: 50rpx;
+	font-size: 24rpx;
+}
+/* index */
+.com_pres{
+	display: inline-block;
+	color: #F68A0A;
+}
+.icon_index_ren{
+    width: 18rpx;
+	height: 21rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/gw_time_ren.png) no-repeat;
+	background-size: contain;
+	margin-right: 8rpx;
+}
+.icon_index_phone{
+  width: 21rpx;
+	height: 21rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/gw_time_phone.png) no-repeat;
+	background-size: contain;
+	margin-right: 8rpx;
+}
+.icon_index_mess{
+    width: 19rpx;
+	height: 19rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/gw_time_mess.png) no-repeat;
+	background-size: contain;
+	margin-right: 8rpx;
+}
+/*咨询订单-评价*/
+.icon_ask_kong{
+	width: 35rpx;
+	height: 35rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_ask_kong.png) no-repeat;
+	background-size: contain;
+	margin-right: 10rpx;
+}
+.icon_ask_dui{
+	width: 35rpx;
+	height: 35rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_ask_dui.png) no-repeat;
+	background-size: contain;
+	margin-right: 10rpx;
+}
+.ask_tan_p{
+	color: #a8a8a8;
+	font-size: 26rpx;
+}
+
+.ask_ren_img{
+	text-align: center;
+	position: absolute;
+	top:-142rpx;
+	left: 240rpx;
+	}
+.ask_ren_img image{
+	width: 135rpx;
+	height: 145rpx;
+}
+.ask_h4{
+    font-size: 30rpx;
+}
+.ask_h4_tex{
+    font-size: 22rpx;
+    color: #FEAA11;
+}
+.ask_cha_img{
+	position: absolute;
+	top:10rpx;
+	right: 10rpx;
+}
+.ask_cha_img image{
+	width: 45rpx;
+	height: 45rpx;
+}
+.ask_con_p{
+  font-size: 20rpx !important;
+  margin-top: 6rpx;
+  color: #999 !important;
+}
+.w100{
+  width: 100%;
+}
+/* 新增样式 */
+.icon_z_order{
+  	width: 42rpx;
+	height: 36rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_z_order.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+  margin-top: 6rpx;
+  box-sizing: border-box;
+}
+.icon_z_ohover{
+  	width: 42rpx;
+	height: 36rpx;
+	display: inline-block;
+	vertical-align: middle;
+	background: url(https://mp.hdhra.com/home/image/icon_z_ohover.png) no-repeat;
+	background-size: contain;
+	margin-bottom: 14rpx;
+   margin-top: 6rpx;
+  box-sizing: border-box;
+}
+/* 咨询时间弹出框 */
+.ask_tan_box{
+  display:block; 
+  position:fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,.8);
+  z-index: 1001;
+}
+.ask_tan_con{
+  text-align: center;
+  padding: 50rpx 20rpx;
+  box-sizing: border-box;
+}
+.ask_tan_con .ask-time-btn{
+  width: 300rpx;
+  height: 100rpx;
+  margin-top: 20rpx;
+}
+.ask_tan_con .ask-time-img{
+  width: 540rpx;
+  height: 900rpx;
+}
+.zwsj{
+  text-align: center;
+  margin-top: 30rpx;
+}
+.zwsj1{
+  text-align: center;
+  margin-top: 125rpx;
+}

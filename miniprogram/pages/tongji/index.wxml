@@ -1,0 +1,21 @@
+<view class="section" style="text-align:center;margin-top:10rpx;"> 今日数据
+ <canvas canvas-id="lineCanvas"  disable-scroll="true" class="canvas" ></canvas>
+ <picker class='inlines' mode="date" value="{{date7}}" start="" end="" bindchange="bindDateChange7">
+    <view class="picker">
+      {{date7}}
+    </view>
+ </picker>
+ 至
+  <picker class='inlines' width="50rpx" mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}  
+    </view>
+ </picker> 
+ <text class='' bindtap="sousuo" >搜索</text>
+<!-- <picker><view class="picker"><icon bindtap="sousuo" type="search" size="30" />    </view></picker> -->
+
+ 
+</view>
+<canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas"></canvas>
+<canvas canvas-id="columnCanvas1" disable-scroll="true" class="canvas"></canvas>
+

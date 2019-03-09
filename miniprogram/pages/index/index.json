@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "自我审视24条",
+
+  "usingComponents": {
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-dialog": "../../dist/dialog/index",
+    "van-field": "../../dist/field/index",
+    "van-popup": "../../dist/popup/index",
+    "van-loading": "../../dist/loading/index"
+  }
+}

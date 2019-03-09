@@ -1,0 +1,22 @@
+.containers{
+  height: 100%;
+  width: 100%;
+text-align: center;
+}
+.b50{width: 49%;height: 100%;}
+.item{
+  width: 100rpx;/*微信小程序獨有的像素單位，隨屏幕分辨率動態變化*/
+  height: 100rpx;
+  border: 1px solid #fff;
+}
+.flex-wrp {flex:1;}
+.t-center{
+  text-align: center;
+}
+.inlineb{
+  display: inline-flex;
+}
+
+.pickers{
+  order:1px solid red;text-align:center;
+}

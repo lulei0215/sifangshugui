@@ -1,0 +1,97 @@
+<view class="t-center" style="font-size:50rpx;">24条分期排序表</view>
+<view class="containers">
+<view>请选择时间进行搜索</view>
+  <view style="float:left" class="b50">
+    <picker class='picker' mode="date" value="{{date7}}" start="" end="" bindchange="bindDateChange7">
+      <view class="picker pickers">
+        {{date7}}
+      </view>
+    </picker>
+    <view style="width:100%;text-align:center;">|</view>
+    <picker class='picker' width="" mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
+      <view class="picker pickers">
+        {{date}}
+      </view>
+    </picker>
+    <button bindtap='serch' data-id='1'>搜索</button>
+    <view style="width:99%;">
+      <view style="width:50%;display:inline-block;text-align:center;">项目编号</view>
+      <view style="width:50%;display:inline-block;text-align:center;">分数</view>
+    </view>
+
+    <block wx:for='{{tableData1}}' wx:key='id' wx:for-item='point'>
+
+      <view style="width:99%;">
+        <view style="width:50%;display:inline-block;text-align:center;">{{point.id}}</view>
+        <view style="width:50%;display:inline-block;text-align:center;">{{point.point}}</view>
+      </view>
+    </block>
+
+
+
+
+  </view>
+
+  <view style="float:left" class="b50">
+
+    <picker class='' mode="date" value="{{date2}}" start="" end="" bindchange="bindDateChange2">
+      <view class="picker pickers">
+        {{date2}}
+      </view>
+    </picker>
+    <view style="width:100%;text-align:center;">|</view>
+    <picker class='' width="" mode="date" value="{{date3}}" start="" end="" bindchange="bindDateChange3">
+      <view class="picker pickers">
+        {{date3}}
+      </view>
+    </picker>
+   <button bindtap='serch'  data-id='2'>搜索</button>
+    <view style="width:99%;">
+      <view style="width:50%;display:inline-block;text-align:center;">项目编号</view>
+      <view style="width:50%;display:inline-block;text-align:center;">分数</view>
+    </view>
+    <block wx:for='{{tableData2}}' wx:key='id' wx:for-item='point'>
+
+      <view style="width:99%;order:1px solid red;">
+        <view style="width:50%;display:inline-block;text-align:center;">{{point.id}}</view>
+        <view style="width:50%;display:inline-block;text-align:center;">{{point.point}}</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- <view class="flex-wrp">
+  <picker class='inlines' mode="date" value="{{date7}}" start="" end="" bindchange="bindDateChange7" >
+    <view class="picker" style="order:1px solid red;">
+      {{date7}}
+    </view>
+ </picker>
+ 至
+  <picker class='inlines' width="50rpx" mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+ </picker> 
+
+
+  <view class="inlineb t-center">
+    <view class="borders">24条</view>
+      <view class="borders">24条</view>
+  </view>
+ 
+
+  </view>
+  <view class="flex-wrp">
+ <picker class='inlines' mode="date" value="{{date7}}" start="" end="" bindchange="bindDateChange7">
+    <view class="picker">
+      {{date7}}
+    </view>
+ </picker>
+ 至
+  <picker class='inlines' width="50rpx" mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+ </picker> 
+  </view>
+   -->
+</view>

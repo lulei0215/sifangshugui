@@ -1,0 +1,38 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/tongji/index",
+    "pages/guanyu/index",
+    "pages/glist/index",
+    "pages/infors/index",
+    "pages/zhuce/index",
+    "pages/tongjis/index",
+    "pages/biaoge/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "自我审视24条",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "自我审视"
+    },
+    {
+      "pagePath": "pages/tongji/index",
+      "text": "统计"
+    },
+    {
+      "pagePath": "pages/biaoge/index",
+      "text": "表格"
+    },
+    {
+      "pagePath": "pages/guanyu/index",
+      "text": "关于"
+    }]
+  }
+}

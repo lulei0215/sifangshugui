@@ -1,0 +1,77 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"appid": "wx75226a161df82e93",
+	"projectname": "%E5%8A%9F%E8%BF%87",
+	"libVersion": "2.5.0",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 6,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "tongji",
+					"pathName": "pages/tongji/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "tongji",
+					"pathName": "pages/glist/index",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "24格对应详情",
+					"pathName": "pages/infors/index",
+					"query": "id=23"
+				},
+				{
+					"id": 4,
+					"name": "登录",
+					"pathName": "pages/zhuce/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "tongjis",
+					"pathName": "pages/tongjis/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "biaoge",
+					"pathName": "pages/biaoge/index"
+				}
+			]
+		}
+	}
+}

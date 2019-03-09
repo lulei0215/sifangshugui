@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "自我审视24条",
+  "usingComponents": {
+    "van-panel": "../../dist/panel/index",
+    "van-stepper": "../../dist/stepper/index",
+    "van-button": "../../dist/button/index",
+    "van-field": "../../dist/field/index",
+    "van-toast": "../../dist/toast/index"
+   
+  }
+}

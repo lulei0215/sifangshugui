@@ -1,0 +1,10 @@
+<view class="section">
+  <view class="section__title"></view>
+  <picker mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
+    <view class="picker">
+     请选择日期：  {{date}}
+    </view>
+  </picker>
+</view>
+<button style='display:flex;bottom:0rpx;' formType="submit" id="dian">提交
+</button>

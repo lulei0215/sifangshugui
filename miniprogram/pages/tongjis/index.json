@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "统计",
+  "usingComponents": {
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-dialog": "../../dist/dialog/index",
+    "van-field": "../../dist/field/index",
+    "van-popup": "../../dist/popup/index",
+    "van-card": "../../dist/card/index",
+    "van-panel": "../../dist/panel/index"
+  }
+}

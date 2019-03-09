@@ -1,0 +1,30 @@
+<van-toast id="van-toast" />
+<view style='padding-button:10rpx;font-size:35rpx;'>{{title}}</view>
+<view>
+</view>
+<view> {{intro}}</view>
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="section">
+  
+</view>
+<view>
+<view>
+
+</view>
+<van-cell-group>
+<van-field
+    value="{{ shiqing }}"
+    clearable
+    label="对应事情"
+    name="shiqing"
+    placeholder="请简述事情"
+    bind:change="shiqing"
+  />
+</van-cell-group></view>
+<van-stepper value="{{ 1 }}" bind:change="bujinqi" /> 
+<button formType="submit" style="display:inline">确定</button>   
+
+</form>
+
+

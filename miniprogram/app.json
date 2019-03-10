@@ -1,14 +1,15 @@
 {
   "cloud": true,
   "pages": [
-    "pages/index/index",
+    "pages/shouye/index",
     "pages/tongji/index",
     "pages/guanyu/index",
     "pages/glist/index",
     "pages/infors/index",
     "pages/zhuce/index",
     "pages/tongjis/index",
-    "pages/biaoge/index"
+    "pages/biaoge/index",
+    "pages/index/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

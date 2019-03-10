@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -69,7 +69,21 @@
 				{
 					"id": -1,
 					"name": "biaoge",
-					"pathName": "pages/biaoge/index"
+					"pathName": "pages/biaoge/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "shouye",
+					"pathName": "pages/shouye/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "原首页",
+					"pathName": "pages/index/index",
+					"scene": null
 				}
 			]
 		}

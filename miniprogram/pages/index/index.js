@@ -347,7 +347,19 @@ Page({
               } else if (res.data.err_code == '001') {
                 wx.removeStorageSync('session');
               } else {
-
+                if (res.data.type == 1) {
+                  console.log(nowDate)
+                  that.setData({
+                    date: nowDate
+                  })
+                  wx.setStorageSync('nowdate', nowDate)
+                } else {
+                  var nowsdate = res.data.type;
+                  that.setData({
+                    date: nowsdate
+                  })
+                  wx.setStorageSync('nowdate', nowsdate)
+                }
               }
             },
             fail: function (res) {
@@ -408,26 +420,40 @@ Page({
   shiqing: function (e) {
     console.log(e.target.id);
     var _this = this
+    var shiqing = 'shiqing'+e.target.id;
+    console.log(shiqing)
     console.log(e.detail);
     wx.setStorageSync('shiqing' + e.target.id, e.detail)
+    wx.getStorageInfo({
+      success(res) {
+        console.log(res.keys)
+
+      }
+    })
     console.log(_this.data.shiqing)
   },
   bujinqi: function (e) {
-    console.log(e.currentTarget.dataset.id)
-    var bujiid = e.currentTarget.dataset.id;
-    // var aa = document.getElementById(bujiid)
-    // console.log(aa)
+  
+    var _this = this
+    var bujiid =  e.currentTarget.dataset.id;
+    console.log(bujiid)
     var _this = this
     console.log(e.detail);
-    wx.setStorageSync('point' + bujiid, e.detail)
-    console.log(_this.data.bu)
+    wx.setStorageSync(bujiid, e.detail)
 
   },
   formSubmit: function (e) {
+    wx.getStorageInfo({
+      success(res) {
+        console.log(res.keys)
+
+      }
+    })
     var _this = this;
     var id = e.detail.target.id
-    var point = wx.getStorageSync('point' + id);
-    console.log(e.detail.target.id)
+    var point = wx.getStorageSync('buji' + id);
+    var shiqing = wx.getStorageSync('shiqing' + id)
+  
     if (!point) {
       console.log('空point')
       point = 1;

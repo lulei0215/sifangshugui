@@ -1,128 +1,47 @@
 <!--index.wxml-->
-
-<view class="section" style="text-align:center"> 
- <view class="section__title"></view> 
+<van-notify id="van-notify" />
+<view class="section" style="text-align:center">
+  <view class="section__title"></view>
   <picker mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
     <view class="picker">
-     请点击选择日期： {{date}}
+      请点击选择日期： {{date}}
     </view>
   </picker>
 </view>
 
 <view>
-  <view class="views" bindtap="cellclick" id="1">1.对他人说谎 <text class="imgs"></text>  </view>
+  <van-collapse value="{{ activeNames }}" bind:change="onChange" wx:for="{{ess}}">
+    <van-collapse-item title="{{index+1}}.{{item}}" name="{{index+2}}">
+      <form bindsubmit="formSubmit" bindreset="formReset">
+          <van-cell-group>
+            <van-field  clearable label="对应事情" name="shiqing" placeholder="请简述事情" id="{{index+1}}" bind:change="shiqing" />
+          </van-cell-group>
+        <van-stepper value="{{ 1 }}" bind:change="bujinqi" data-id="buji{{index+1}}" />
+        <button formType="submit" style="" id='{{index+1}}'>确定</button>
 
-</view>
-<view>
-  <view class="views" bindtap="cellclick" id="2">2.对自己内心说谎 <text class="imgs"></text></view>
+      </form>
+    </van-collapse-item>
+  </van-collapse>
 
-</view>
-<view >
-  <view class="views" bindtap="cellclick" id="3">3.无法真诚道歉 <text class="imgs"></text></view>
   
-</view>
-
-<view>
-  <view class="views"  bindtap="cellclick" id="4">4.把自己的行为正当化/唬弄他<text class="imgs"></text></view>
- 
-</view>
-
-<view >
-  <view class="views" bindtap="cellclick" id="5">5.找借口 <text class="imgs"></text></view>
-  
-</view>
-
-<view>
-  <view class="views"  bindtap="cellclick" id="6">6.将自己犯过的错推给别人 <text class="imgs"></text></view>
- 
-</view>
-<view >
-  <view class="views" bindtap="cellclick" id="7">7.不守承诺（不守约） <text class="imgs"></text></view>
-  
-</view>
-<view>
-  <view class="views"  bindtap="cellclick" id="8">8.虚荣 <text class="imgs"></text></view>
- 
-</view>
-<view >
-  <view class="views" bindtap="cellclick" id="9">9.隐藏自己的实力 <text class="imgs"></text></view>
-  
-</view>
-<view>
-  <view class="views"  bindtap="cellclick" id="10">10.错误理解别人的好意而从而产生忌恨或对忌恨自己的人同样产生忌恨。<text class="imgs"></text></view>
- 
-</view>
-<view >
-  <view class="views" bindtap="cellclick" id="11">11.暗地里，背地里做事 <text class="imgs"></text></view>
-  
-</view>
-<view>
-  <view class="views"  bindtap="cellclick" id="12">12.把别人的秘密说出去 <text class="imgs"></text></view>
- 
-</view>
-<view >
-  <view class="views" bindtap="cellclick" id="13">13.嫉妒 <text class="imgs"></text></view>
-  
-</view>
-<view>
-  <view class="views"  bindtap="cellclick" id="14">14.迁怒于人<text class="imgs"></text></view>
- 
-</view>
-<view >
-  <view class="views" bindtap="cellclick" id="15">15.偷东西/有借无还/浪费<text class="imgs"></text></view>
-  
-</view>
-<view>
-  <view class="views"  bindtap="cellclick" id="16">16.占用别人得时间（自己可以做的事情让别人帮着做） <text class="imgs"></text></view>
- 
-</view>
-
-<view>
-  <view class="views"  bindtap="cellclick" id="17">17.剥夺别人的自由 <text class="imgs"></text></view>
- 
-</view>
 
 
-<view>
-  <view class="views"  bindtap="cellclick" id="18">18.逃票（不买票，或者买短程票而成乘长程） <text class="imgs"></text></view>
- 
-</view>
 
-<view>
-  <view class="views"  bindtap="cellclick" id="19">19.伤害他人的心，欺负他人 <text class="imgs"></text></view>
- 
-</view>
 
-<view>
-  <view class="views"  bindtap="cellclick" id="20">20.自己作弊，帮助他人作弊 <text class="imgs"></text></view>
- 
-</view>
 
-<view>
-  <view class="views"  bindtap="cellclick" id="21">21.开小差（趁他人不注意做自己的事情） <text class="imgs"></text></view>
- 
+
 </view>
-<view>
-  <view class="views"  bindtap="cellclick" id="22">22.偷听 <text class="imgs"></text></view>
- 
-</view>
-<view>
-  <view class="views"  bindtap="cellclick" id="23">23.把公司的电话（邮件）用作私用 <text class="imgs"></text></view>
- 
-</view>
-<view>
-  <view class="views"  bindtap="cellclick" id="24">24.逃课 <text class="imgs"></text></view>
- 
-</view>
-<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="{{shows==1?'shows':''}}"> 
-<view class="weui_dialog_confirm"  style="position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index:999;background-color:rgba(0,0,0,0.5);">
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="{{shows==1?'shows':''}}">
+  <view class="weui_dialog_confirm" style="position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index:999;background-color:rgba(0,0,0,0.5);">
     <view class="weui_mask"></view>
     <view class="weui_dialog" style="opacity:0.7;">
-        <view class="weui_dialog_hd"><strong class="weui_dialog_title">提示</strong></view>
-        <view class="weui_dialog_bd" style="font-color:black;">为使您能正常享受自我审视24条服务,需要您进行授权,请点击授权登录-再选择允许</view>
-        <view class="weui_dialog_ft">
-            <a href="javascript:;" class="weui_btn_dialog default">授权登录</a>
-        </view>
+      <view class="weui_dialog_hd">
+        <strong class="weui_dialog_title">提示</strong>
+      </view>
+      <view class="weui_dialog_bd" style="font-color:black;">为使您能正常享受自我审视24条服务,需要您进行授权,请点击授权登录-再选择允许</view>
+      <view class="weui_dialog_ft">
+        <a href="javascript:;" class="weui_btn_dialog default">授权登录</a>
+      </view>
     </view>
-</view>
+  </view>
 </button>

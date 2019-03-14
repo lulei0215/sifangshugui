@@ -10,18 +10,25 @@
 </view>
 
 <view>
+<form bindsubmit="formSubmit" bindreset="formReset">
   <van-collapse value="{{ activeNames }}" bind:change="onChange" wx:for="{{ess}}">
     <van-collapse-item title="{{index+1}}.{{item}}" name="{{index+2}}">
-      <form bindsubmit="formSubmit" bindreset="formReset">
+      
           <van-cell-group>
-            <van-field  clearable label="对应事情" name="shiqing" placeholder="请简述事情" id="{{index+1}}" bind:change="shiqing" />
+            <van-field  clearable label="对应事情" name="shiqing{{index+1}}" placeholder="请简述事情" id="{{index+1}}" bind:change="shiqing" />
           </van-cell-group>
-        <van-stepper value="{{ 1 }}" bind:change="bujinqi" data-id="buji{{index+1}}" />
-        <button formType="submit" style="" id='{{index+1}}'>确定</button>
+        <van-stepper value="{{ 1 }}" bind:change="bujinqi" name="bujinqi{{index+1}}" data-id="buji{{index+1}}" />
+       <button formType="submit" style="" id='{{index+1}}'>确定</button>
+ 
 
-      </form>
+     
     </van-collapse-item>
   </van-collapse>
+   <!-- <button formType="submit" style="" id='{{index+1}}'>确定</button> -->
+   <!-- <van-button formType="submit" type="primary" size="large" bind:click="formSubmit">提交</van-button> -->
+
+ 
+   </form>
 
   
 

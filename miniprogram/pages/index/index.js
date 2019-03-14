@@ -443,6 +443,7 @@ Page({
 
   },
   formSubmit: function (e) {
+    console.log(e)
     wx.getStorageInfo({
       success(res) {
         console.log(res.keys)

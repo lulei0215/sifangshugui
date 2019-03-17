@@ -7,7 +7,7 @@ var service = require('../../utils/util.js')
 var pathUrl = app.globalData.pathUrl;
 Page({
   data: {
-    bu: 1,
+    bu: 0,
     activeNames: ['0'],
     ess: ["对他人说谎",
       "对自己内心说谎",
@@ -42,7 +42,8 @@ Page({
     show: false,
     username: '',
     password: '',
-    shows: 1
+    shows: 1,
+    bshow:1
   },
   onChange(event) {
     var that = this;
@@ -59,7 +60,7 @@ Page({
     })
     wx.setStorageSync('nowdate', e.detail.value)
     var nowdata = wx.getStorageSync('nowdate');
-
+    
     console.log(nowdata)
   },
   //默认date是今天 改变时 更改date的值传递过去
@@ -454,11 +455,17 @@ Page({
     var id = e.detail.target.id
     var point = wx.getStorageSync('buji' + id);
     var shiqing = wx.getStorageSync('shiqing' + id)
-  
+  console.log(point+'fen')
     if (!point) {
       console.log('空point')
-      point = 1;
-      wx.setStorageSync('point' + id, 1)
+      wx.showToast({
+        title: '分值要大于0',
+        icon: 'fail',
+        duration: 2000
+      })
+      return false;
+      point = 0;
+      wx.setStorageSync('point' + id, point)
     }
     var shiqing = wx.getStorageSync('shiqing' + id);
     if (!shiqing) {

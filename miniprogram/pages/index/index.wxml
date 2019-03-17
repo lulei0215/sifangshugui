@@ -1,4 +1,5 @@
 <!--index.wxml-->
+
 <van-notify id="van-notify" />
 <view class="section" style="text-align:center">
   <view class="section__title"></view>
@@ -8,7 +9,7 @@
     </view>
   </picker>
 </view>
-
+<form bindsubmit="formSubmit1" bindreset="formReset1">
 <view>
 <form bindsubmit="formSubmit" bindreset="formReset">
   <van-collapse value="{{ activeNames }}" bind:change="onChange" wx:for="{{ess}}">
@@ -17,17 +18,18 @@
           <van-cell-group>
             <van-field  clearable label="对应事情" name="shiqing{{index+1}}" placeholder="请简述事情" id="{{index+1}}" bind:change="shiqing" />
           </van-cell-group>
-        <van-stepper value="{{ 1 }}" bind:change="bujinqi" name="bujinqi{{index+1}}" data-id="buji{{index+1}}" />
+        <van-stepper value="{{ 1 }}" min="1" bind:change="bujinqi" name="bujinqi{{index+1}}" data-id="buji{{index+1}}" />
        <button formType="submit" style="" id='{{index+1}}'>确定</button>
  
 
      
     </van-collapse-item>
+
   </van-collapse>
    <!-- <button formType="submit" style="" id='{{index+1}}'>确定</button> -->
-   <!-- <van-button formType="submit" type="primary" size="large" bind:click="formSubmit">提交</van-button> -->
+   <!-- <van-button wx:if="{{bshow}}" formType="submit" type="primary" size="large" bind:click="formSubmit">确认修改</van-button> -->
 
- 
+
    </form>
 
   
@@ -37,7 +39,7 @@
 
 
 
-</view>
+</view>   </form>
 <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="{{shows==1?'shows':''}}">
   <view class="weui_dialog_confirm" style="position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index:999;background-color:rgba(0,0,0,0.5);">
     <view class="weui_mask"></view>

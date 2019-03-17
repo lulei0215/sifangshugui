@@ -1,18 +1,22 @@
-<!--pages/now/index.wxml-->
-<view style="width:100%;text-align:center;">
-<text>今日数据</text>
-</view>
-
-
+<form bindsubmit="formSubmit" bindreset="formReset">
  <view style="width:99%;">
       <view style="width:50%;display:inline-block;text-align:center;">项目编号</view>
       <view style="width:50%;display:inline-block;text-align:center;">分数</view>
     </view>
 
-    <block wx:for='{{nowdate}}' wx:key='id' wx:for-item='point'>
+    <block wx:for='{{datas}}' wx:key='id' wx:for-item='point'>
 
       <view style="width:99%;">
-        <view style="width:50%;display:inline-block;text-align:center;">{{point.type}}</view>
-        <view style="width:50%;display:inline-block;text-align:center;">{{point.point}}</view>
+        <view style="width:50%;display:inline-block;text-align:center;">{{point.id}}</view>
+        <view style="width:50%;display:inline-block;text-align:center;">
+     
+  <van-stepper value="{{point.point}}" min="0" bind:change="bujinqi" name="{{index+1}}" data-id="{{index+1}}" />
+        </view>
       </view>
       </block>
+     
+     <view style='text-align:center'>
+      <button style="margin:0 auto;width:50rpx;" formType="submit" style="" id='{{index+1}}'>确认修改</button>
+     </view>
+      
+      </form>

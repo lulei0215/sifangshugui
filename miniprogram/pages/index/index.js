@@ -51,6 +51,18 @@ Page({
       activeNames: event.detail
     });
   },
+  toindex:function(){
+    console.log(1)
+    wx.switchTab({
+      url: '/pages/shouye/index',
+    })
+  },
+  tonow: function () {
+    console.log(12)
+    wx.switchTab({
+      url: '/pages/now/index',
+    })
+  },
   //日期插件事件
   bindDateChange: function (e) {
     var that = this;
@@ -64,62 +76,43 @@ Page({
     console.log(nowdata)
   },
   //默认date是今天 改变时 更改date的值传递过去
-  bindGetUserInfo(e) {
-    var msg = e.detail.errMsg;
-    console.log(e)
-    var that = this;
-    var session;
-    if (msg == 'getUserInfo:ok') { //授权点击确定getUserInfo:ok
-      //确认授权的话 就不显示弹窗
-      console.log('点击了允许授权')
-      that.setData({
-        shows: 1
-      })
-      wx.setStorageSync('shows', true)
-      session = wx.getStorageSync('session');
-      //app.getuserInfo(that);
-      // if (session == '') {
-      //   console.log('session空')
-      //   that.getUserSessions()
-      // }
-      setTimeout(function () {
-        that.getuserInfo(that)
-      }, 500)
+  // bindGetUserInfo(e) {
+  //   var msg = e.detail.errMsg;
+  //   console.log(e)
+  //   var that = this;
+  //   var session;
+  //   if (msg == 'getUserInfo:ok') { //授权点击确定getUserInfo:ok
+  //     //确认授权的话 就不显示弹窗
+  //     console.log('点击了允许授权')
+  //     that.setData({
+  //       shows: 1
+  //     })
+  //     wx.setStorageSync('shows', true)
+  //     session = wx.getStorageSync('session');
+  //     //app.getuserInfo(that);
+  //     // if (session == '') {
+  //     //   console.log('session空')
+  //     //   that.getUserSessions()
+  //     // }
+  //     setTimeout(function () {
+  //       that.getuserInfo(that)
+  //     }, 500)
 
-    } else if (msg == 'getUserInfo:fail auth deny') { //授权点击取消授权getUserInfo:fail auth deny
-      //取消授权  就显示弹窗
-      console.log('点击了取消授权')
-    } else {
-      console.log('未知情况')
-    }
-    var userinfo = e.detail.userInfo
-    var _this = this;
-  },
+  //   } else if (msg == 'getUserInfo:fail auth deny') { //授权点击取消授权getUserInfo:fail auth deny
+  //     //取消授权  就显示弹窗
+  //     console.log('点击了取消授权')
+  //   } else {
+  //     console.log('未知情况')
+  //   }
+  //   var userinfo = e.detail.userInfo
+  //   var _this = this;
+  // },
   glist: function () {
     wx.navigateTo({
       url: '/pages/glist/index'
     })
   },
-  nowdate: function (that) {
-    var this_ = this;
-    var that = that
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    if (month < 10) {
-      month = "0" + month;
-    }
-    if (day < 10) {
-      day = "0" + day;
-    }
-    var nowDate = year + "-" + month + "-" + day;
-    console.log(nowDate)
-    this_.setData({
-      date: nowDate
-    })
-    wx.setStorageSync('nowdate', nowDate)
-  },
+  
   onSubmit(event) {
     console.log(event)
   },
@@ -140,283 +133,20 @@ Page({
   },
   onShow: function () {
 
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    if (month < 10) {
-      month = "0" + month;
-    }
-    if (day < 10) {
-      day = "0" + day;
-    }
-    var nowDate = year + "-" + month + "-" + day;
   
-
-
-    console.log('index onlaunch')
-    var shows = wx.getStorageSync('shows');
-    console.log(shows)
-    this.setData({
-      shows: shows
-    })
-    console.log('onlaunch')
-    wx.setStorageSync('shows', true)
-    wx.setStorageSync('loginredirect', true)
-    var session = wx.getStorageSync('session');
-    if (session == '') {
-      console.log('最初空')
-    }
-    //   onShow: function () {
-    console.log('index--onShow')
-
-
-    //判断是否授权  没有授权就显示首选弹窗
-    var that = this;
-    //首先异步请求 判断 当前入口是小程序还是企业微信的小程序
-
-    //that.globalData.qywx = 1;
-
-    //当前是企业微信登陆状态
-    //判断当前的微信授权状态
-    wx.checkSession({
-      success: function () {
-        //ssion 未过期，并且在本生命周期一直有效
-        console.log("已经登陆");
-        //that.getuserInfo(that);
-        wx.getUserInfo({
-          success: function (res) {
-            // success
-            //that.globalData.userinfo = res.userInfo;
-            that.setData({
-              userinfo: res.userInfo
-            })
-            var userInfo = res
-            // var userInfo = res.userInfo;
-            // userInfo.encryptedData = res.encryptedData;
-            that.getUserSession(function (res, session) {
-              console.log(session);
-
-              wx.request({
-                method: 'POST',
-                url: pathUrl + '/getuser',
-                data: {
-                  userinfo: userInfo,
-                  session: session
-                },
-                success: function (res) {
-                  console.log('获取信息成功22222222222');
-                  console.log(res.data.data.user_status)
-
-                  if (res.data.data.user_status == '1') {
-                    //wx.removeStorageSync('session');
-                    //that.getuserInfo(that);
-                    console.log('未激活用户')
-                    wx.navigateTo({
-                      url: '/pages/zhuce/index',
-                    })
-                    console.log('变了333')
-                  }
-                  if(res.data.type == 1){ 
-                    console.log(nowDate)
-                    that.setData({
-                      date: nowDate
-                    })
-                    wx.setStorageSync('nowdate', nowDate)
-                  }else{
-                    var nowsdate = res.data.type;
-                    that.setData({
-                      date: nowsdate
-                    })
-                    wx.setStorageSync('nowdate', nowsdate) 
-                  }
-                  console.log('变了222222')
-                },
-                fail: function (res) {
-                  console.log('获取信息失败！')
-                  console.log('变了2')
-                }
-              })
-
-
-            })
-
-          },
-          fail: function (res) {
-            console.log(res);
-            //  that.globalData.shows = 0
-            that.setData({
-              shows: 0
-            })
-            console.log('没有授权')
-            wx.setStorageSync('shows', 0)
-            console.log('变了')
-          }
-        })
-      },
-      fail: function () {
-        console.log("登录过期了")
-        //登录态过期
-        wx.login({
-          success: function (res) {
-            console.log("重新登陆成功login", res)
-            // that.getuserInfo(that);
-            wx.getUserInfo({
-              success: function (res) {
-                // success
-                // that.globalData.userinfo = res.userInfo;
-                that.setData({
-                  userinfo: res.userInfo
-                })
-                var userInfo = res
-                // var userInfo = res.userInfo;
-                // userInfo.encryptedData = res.encryptedData;
-                that.getUserSession(function (res, session) {
-                  console.log(session);
-                  wx.request({
-                    method: 'POST',
-                    url: pathUrl + '/getuser',
-                    data: {
-                      userinfo: userInfo,
-                      session: session
-                    },
-                    success: function (res) {
-                      console.log('获取信息成功111111111');
-                      console.log(res.data)
-                      if (res.data.err_code == '001') {
-                        wx.removeStorageSync('session');
-                        // that.getuserInfo(that);
-                      }
-                    },
-                    fail: function (res) {
-                      console.log('获取信息失败！')
-                    }
-                  })
-                })
-
-              },
-              fail: function (res) {
-                console.log('获取用户信息失败')
-                console.log(res);
-                that.setData({
-                  shows: 0
-                })
-                //that.globalData.shows = 0
-                wx.setStorageSync('shows', false)
-              }
-            })
-          }
-        })
-      }
-    })
-  },
-  // onShow: function () {
-  //   console.log('onshow')
-  //   this.setData({
-  //     show:true
-  //   })
-  // },
-  //微信登陆调取
-  getuserInfo: function (that) {
-    wx.getUserInfo({
-      success: function (res) {
-        // success
-        //that.globalData.userinfo = res.userInfo;
-        that.setData({
-          userinfo: res.userInfo
-        })
-        var userInfo = res
-        // var userInfo = res.userInfo;
-        // userInfo.encryptedData = res.encryptedData;
-        that.getUserSession(function (res, session) {
-          console.log(session);
-          wx.request({
-            method: 'POST',
-            url: pathUrl + '/getuser',
-            data: {
-              userinfo: userInfo,
-              session: session
-            },
-            success: function (res) {
-              console.log('获取信息成功9999999');
-              console.log(res.data)
-              if (res.data.err_code == '003') {
-                wx.redirectTo({
-                  url: '/pages/zhuce/index',
-                })
-                // that.getuserInfo(that);
-              } else if (res.data.err_code == '001') {
-                wx.removeStorageSync('session');
-              } else {
-                if (res.data.type == 1) {
-                  console.log(nowDate)
-                  that.setData({
-                    date: nowDate
-                  })
-                  wx.setStorageSync('nowdate', nowDate)
-                } else {
-                  var nowsdate = res.data.type;
-                  that.setData({
-                    date: nowsdate
-                  })
-                  wx.setStorageSync('nowdate', nowsdate)
-                }
-              }
-            },
-            fail: function (res) {
-              console.log('获取信息失败！')
-            }
-          })
-        })
-
-      },
-      fail: function (res) {
-        console.log(res);
-      }
-    })
   },
   onLoad: function (options) {
     //var shows =  app.globalData.shows
     var shows = this.data.shows;
     console.log('onload')
     console.log(shows)
+    this.setData({
+      date:options.nowdate
+    })
 
 
 
 
-
-  },
-  // 获取用户session
-  getUserSession: function (callback) {
-    var self = this;
-    var session = wx.getStorageSync('session')
-    if (session != '') {
-      callback(null, session)
-    } else {
-      wx.login({
-        success: function (data) {
-          wx.request({
-            method: 'POST',
-            url: pathUrl + '/wxget',
-            data: {
-              code: data.code
-            },
-            success: function (res) {
-              wx.setStorageSync('session', res.data.data);
-              callback(null, res.data.data);
-            },
-            fail: function (res) {
-              console.log('网络故障,请重新打开', res)
-              callback(res)
-            }
-          })
-        },
-        fail: function (err) {
-          console.log('网络故障,请重新打开', err)
-          callback(err)
-        }
-      })
-    }
   },
   shiqing: function (e) {
     console.log(e.target.id);
@@ -475,7 +205,8 @@ Page({
     }
     console.log(e)
 
-    var nowdata = wx.getStorageSync('nowdate');
+    // var nowdata = wx.getStorageSync('nowdate');
+    var nowdata = _this.data.date;
     var id = e.detail.target.id;
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
 

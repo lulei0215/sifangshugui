@@ -1,70 +1,60 @@
-import { create } from '../common/create';
-
-create({
-  props: {
-    active: {
-      type: Number,
-      observer(active) {
-        this.setData({ currentActive: active });
-        this.setActiveItem();
-      }
+import { VantComponent } from '../common/component';
+import { safeArea } from '../mixins/safe-area';
+VantComponent({
+    mixins: [safeArea()],
+    relation: {
+        name: 'tabbar-item',
+        type: 'descendant',
+        linked(target) {
+            this.children = this.children || [];
+            this.children.push(target);
+            this.setActiveItem();
+        },
+        unlinked(target) {
+            this.children = this.children || [];
+            this.children = this.children.filter(item => item !== target);
+            this.setActiveItem();
+        }
     },
-    fixed: {
-      type: Boolean,
-      value: true
+    props: {
+        active: Number,
+        activeColor: String,
+        fixed: {
+            type: Boolean,
+            value: true
+        },
+        zIndex: {
+            type: Number,
+            value: 1
+        }
     },
-    zIndex: {
-      type: Number,
-      value: 1
-    }
-  },
-
-  data: {
-    items: [],
-    currentActive: -1
-  },
-
-  attached() {
-    this.setData({ currentActive: this.data.active });
-  },
-
-  relations: {
-    '../tabbar-item/index': {
-      type: 'descendant',
-
-      linked(target) {
-        this.data.items.push(target);
-        setTimeout(() => {
-          this.setActiveItem();
-        });
-      },
-
-      unlinked(target) {
-        this.data.items = this.data.items.filter(item => item !== target);
-        setTimeout(() => {
-          this.setActiveItem();
-        });
-      }
-    }
-  },
-
-  methods: {
-    setActiveItem() {
-      this.data.items.forEach((item, index) => {
-        item.setActive({
-          active: index === this.data.currentActive,
-          count: this.data.items.length
-        });
-      });
+    watch: {
+        active(active) {
+            this.currentActive = active;
+            this.setActiveItem();
+        }
     },
-
-    onChange(child) {
-      const active = this.data.items.indexOf(child);
-      if (active !== this.data.currentActive && active !== -1) {
-        this.$emit('change', active);
-        this.setData({ currentActive: active });
-        this.setActiveItem();
-      }
+    created() {
+        this.currentActive = this.data.active;
+    },
+    methods: {
+        setActiveItem() {
+            if (!Array.isArray(this.children) || !this.children.length) {
+                return Promise.resolve();
+            }
+            return Promise.all(this.children.map((item, index) => item.setActive({
+                active: index === this.currentActive,
+                color: this.data.activeColor
+            })));
+        },
+        onChange(child) {
+            const active = (this.children || []).indexOf(child);
+            if (active !== this.currentActive && active !== -1) {
+                this.currentActive = active;
+                this.setActiveItem().then(() => {
+                    this.$emit('change', active);
+                });
+            }
+        }
     }
-  }
 });

@@ -24,8 +24,8 @@ Page({
     var that = this;
     var id = e.target.id;
     var nowdate = that.data.nowdate;
-    wx.redirectTo({
-      url: '/pages/three3/index?id=' + id + '&nowdate=' + nowdate,
+    wx.navigateTo({
+      url: '/pages/three4/index?id=' + id + '&nowdate=' + nowdate,
     })
   },
   onChange(event) {
@@ -105,6 +105,7 @@ Page({
   },
   formSubmit: function (e) {
     console.log(e)
+    var that = this
     var id = this.data.id;
     var nowdate = this.data.nowdate;
     var shiqing = e.detail.value.shiqing;
@@ -122,14 +123,19 @@ Page({
         wx.showToast({
           title: '添加成功',
           icon: 'success',
-          duration: 2000
+          duration: 1000
+        })
+        var shiqings = that.data.shiqing;
+        shiqings.push({'shiqing':shiqing})
+        that.setData({
+          shiqing:shiqings
         })
       } else {
         console.log('0')
         wx.showToast({
           title: '失败请重试',
           icon: 'fail',
-          duration: 2000
+          duration: 1000
         })
       }
     }, function (data) {

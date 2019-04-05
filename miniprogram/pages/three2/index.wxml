@@ -6,7 +6,9 @@
 </form>
 <view  class='three' style=" clear:both;text-align:center;margin-top:200rpx;" >点击选择下一级  </view>
 <view wx:for="{{titles}}">
-  <view  class='three' style="border:1px solid gray;text-align:center" id="{{item.id}}" bindtap='xia'>{{item.title}}</view>
+  <!-- <view wx:if='{{item.id ==32}}' class='three' style="border:1px solid gray;text-align:center" id="{{item.id}}" bindtap='xiaindex'>24条</view>
+  -->
+  <view class='three' style="border:1px solid gray;text-align:center" id="{{item.id}}" bindtap='xia'>{{item.title}}</view>
   </view>
 
   <view class='three'  style=" clear:both;text-align:center" >当前记录:</view>
@@ -15,7 +17,7 @@
 </view> 
 <view class='zi' wx:else>
 <view wx:for="{{shiqing}}">
-  <view>{{item.shiqing}}</view>
+  <view class='zi' >{{index+1}}:{{item.shiqing}}</view>
 </view>
 </view> 
 </view>

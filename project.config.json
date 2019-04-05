@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -89,7 +89,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "今日数据",
 					"pathName": "pages/now/index",
 					"query": "",

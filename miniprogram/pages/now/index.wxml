@@ -3,7 +3,7 @@
       <view style="width:50%;display:inline-block;text-align:center;">项目编号</view>
       <view style="width:50%;display:inline-block;text-align:center;">分数</view>
     </view>
-
+<van-icon name="arrow-up" size="40rpx" bind:click="shun" /> <van-icon bind:click="fan" name="arrow-down" size="40rpx" />
     <block wx:for='{{datas}}' wx:key='id' wx:for-item='point'>
 
       <view style="width:99%;">

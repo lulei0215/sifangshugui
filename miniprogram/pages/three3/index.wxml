@@ -1,7 +1,7 @@
 <view class='body'>
 <form bindsubmit="formSubmit" bindreset="formReset">
  <view class='tou'>{{title}}</view>
-   <van-field  clearable label="对应事情" name="shiqing" placeholder="请简述事情" id="" bind:change="shiqing" />
+   <van-field  clearable label="对应事情" name="shiqing" placeholder="请简述{{title}}" id="" bind:change="shiqing" />
 <button formType="submit" style="float:right" id=''>确定</button>
 </form>
 <view  class='three' style=" clear:both;text-align:center;margin-top:200rpx;" >点击选择下一级  </view>
@@ -15,7 +15,7 @@
 </view> 
 <view class='zi' wx:else>
 <view wx:for="{{shiqing}}">
-  <view>{{item.shiqing}}</view>
+  <view class='zi'>{{index+1}}:{{item.shiqing}}</view>
 </view>
 </view> 
 </view>

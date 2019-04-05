@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "简单描述",
+  "navigationBarTitleText": "每日内观",
   "usingComponents": {
     "van-cell": "../../dist/cell/index",
     "van-cell-group": "../../dist/cell-group/index",

@@ -1,27 +1,22 @@
-import { create } from '../common/create';
-
-create({
-  relations: {
-    '../badge-group/index': {
-      type: 'ancestor'
-    }
-  },
-
-  props: {
-    info: Number,
-    title: String
-  },
-
-  methods: {
-    onClick() {
-      const group = this.getRelationNodes('../badge-group/index')[0];
-      if (group) {
-        group.setActive(this);
-      }
+import { VantComponent } from '../common/component';
+VantComponent({
+    relation: {
+        type: 'ancestor',
+        name: 'badge-group'
     },
-
-    setActive(active) {
-      this.setData({ active });
+    props: {
+        info: null,
+        title: String
+    },
+    methods: {
+        onClick() {
+            const group = this.getRelationNodes('../badge-group/index')[0];
+            if (group) {
+                group.setActive(this);
+            }
+        },
+        setActive(active) {
+            this.set({ active });
+        }
     }
-  }
 });

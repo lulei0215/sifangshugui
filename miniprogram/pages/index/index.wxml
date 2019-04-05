@@ -31,6 +31,11 @@
 
 
    </form>
+   <view style='text-align:center'>
+   <button  style="" bindtap='toindex'>返回首页</button>
+   <button style="" bindtap='tonow'>当日数据</button>
+   </view>
+
 
   
 

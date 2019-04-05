@@ -1,159 +1,128 @@
-import { create } from '../common/create';
-
-const FONT_COLOR = '#f60';
-const BG_COLOR = '#fff7cc';
-
-create({
-  props: {
-    text: {
-      type: String,
-      value: '',
-      observer() {
-        this.setData({}, this.init);
-      }
-    },
-    mode: {
-      type: String,
-      value: ''
-    },
-    url: {
-      type: String,
-      value: ''
-    },
-    openType: {
-      type: String,
-      value: 'navigate'
-    },
-    delay: {
-      type: Number,
-      value: 0
-    },
-    speed: {
-      type: Number,
-      value: 50
-    },
-    scrollable: {
-      type: Boolean,
-      value: true
-    },
-    leftIcon: {
-      type: String,
-      value: ''
-    },
-    color: {
-      type: String,
-      value: FONT_COLOR
-    },
-    backgroundColor: {
-      type: String,
-      value: BG_COLOR
-    }
-  },
-
-  data: {
-    show: true,
-    hasRightIcon: false,
-    width: undefined,
-    wrapWidth: undefined,
-    elapse: undefined,
-    animation: null,
-    resetAnimation: null,
-    timer: null
-  },
-
-  attached() {
-    if (this.data.mode) {
-      this.setData({
-        hasRightIcon: true
-      });
-    }
-  },
-
-  detached() {
-    const { timer } = this.data;
-    timer && clearTimeout(timer);
-  },
-
-  methods: {
-    init() {
-      this.getRect('.van-notice-bar__content').then(rect => {
-        if (!rect || !rect.width) {
-          return;
+import { VantComponent } from '../common/component';
+const FONT_COLOR = '#ed6a0c';
+const BG_COLOR = '#fffbe8';
+VantComponent({
+    props: {
+        text: {
+            type: String,
+            value: ''
+        },
+        mode: {
+            type: String,
+            value: ''
+        },
+        url: {
+            type: String,
+            value: ''
+        },
+        openType: {
+            type: String,
+            value: 'navigate'
+        },
+        delay: {
+            type: Number,
+            value: 0
+        },
+        speed: {
+            type: Number,
+            value: 50
+        },
+        scrollable: {
+            type: Boolean,
+            value: true
+        },
+        leftIcon: {
+            type: String,
+            value: ''
+        },
+        color: {
+            type: String,
+            value: FONT_COLOR
+        },
+        backgroundColor: {
+            type: String,
+            value: BG_COLOR
         }
-        this.setData({
-          width: rect.width
-        });
-
-        this.getRect('.van-notice-bar__content-wrap').then(rect => {
-          if (!rect || !rect.width) {
-            return;
-          }
-
-          const wrapWidth = rect.width;
-          const {
-            width, speed, scrollable, delay
-          } = this.data;
-
-          if (scrollable && wrapWidth < width) {
-            const elapse = width / speed * 1000;
-            const animation = wx.createAnimation({
-              duration: elapse,
-              timeingFunction: 'linear',
-              delay
-            });
-            const resetAnimation = wx.createAnimation({
-              duration: 0,
-              timeingFunction: 'linear'
-            });
-
-            this.setData({
-              elapse,
-              wrapWidth,
-              animation,
-              resetAnimation
-            }, () => {
-              this.scroll();
-            });
-          }
-        });
-      });
     },
-
-    scroll() {
-      const {
-        animation, resetAnimation, wrapWidth, elapse, speed
-      } = this.data;
-      resetAnimation.translateX(wrapWidth).step();
-      const animationData = animation.translateX(-(elapse * speed) / 1000).step();
-      this.setData({
-        animationData: resetAnimation.export()
-      });
-      setTimeout(() => {
-        this.setData({
-          animationData: animationData.export()
+    data: {
+        show: true,
+        hasRightIcon: false
+    },
+    watch: {
+        text() {
+            this.set({}, this.init);
+        }
+    },
+    created() {
+        if (this.data.mode) {
+            this.set({
+                hasRightIcon: true
+            });
+        }
+        this.resetAnimation = wx.createAnimation({
+            duration: 0,
+            timingFunction: 'linear'
         });
-      }, 100);
-
-      const timer = setTimeout(() => {
-        this.scroll();
-      }, elapse);
-
-      this.setData({
-        timer
-      });
     },
-
-    onClickIcon() {
-      const { timer } = this.data;
-      timer && clearTimeout(timer);
-      this.setData({
-        show: false,
-        timer: null
-      });
+    destroyed() {
+        this.timer && clearTimeout(this.timer);
     },
-
-    onClick(event) {
-      this.$emit('click', event);
+    methods: {
+        init() {
+            Promise.all([
+                this.getRect('.van-notice-bar__content'),
+                this.getRect('.van-notice-bar__content-wrap')
+            ]).then((rects) => {
+                const [contentRect, wrapRect] = rects;
+                if (contentRect == null ||
+                    wrapRect == null ||
+                    !contentRect.width ||
+                    !wrapRect.width) {
+                    return;
+                }
+                const { speed, scrollable, delay } = this.data;
+                if (scrollable && wrapRect.width < contentRect.width) {
+                    const duration = (contentRect.width / speed) * 1000;
+                    this.wrapWidth = wrapRect.width;
+                    this.contentWidth = contentRect.width;
+                    this.duration = duration;
+                    this.animation = wx.createAnimation({
+                        duration,
+                        timingFunction: 'linear',
+                        delay
+                    });
+                    this.scroll();
+                }
+            });
+        },
+        scroll() {
+            this.timer && clearTimeout(this.timer);
+            this.timer = null;
+            this.set({
+                animationData: this.resetAnimation
+                    .translateX(this.wrapWidth)
+                    .step()
+                    .export()
+            });
+            setTimeout(() => {
+                this.set({
+                    animationData: this.animation
+                        .translateX(-this.contentWidth)
+                        .step()
+                        .export()
+                });
+            }, 20);
+            this.timer = setTimeout(() => {
+                this.scroll();
+            }, this.duration);
+        },
+        onClickIcon() {
+            this.timer && clearTimeout(this.timer);
+            this.timer = null;
+            this.set({ show: false });
+        },
+        onClick(event) {
+            this.$emit('click', event);
+        }
     }
-  }
 });

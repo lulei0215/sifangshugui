@@ -1,82 +1,96 @@
-import { create } from '../common/create';
-
-// Note that the bitwise operators and shift operators operate on 32-bit ints
-// so in that case, the max safe integer is 2^31-1, or 2147483647
-const MAX = 2147483647;
-
-create({
-  field: true,
-
-  classes: [
-    'input-class',
-    'plus-class',
-    'minus-class'
-  ],
-
-  props: {
-    integer: Boolean,
-    disabled: Boolean,
-    disableInput: Boolean,
-    min: {
-      type: null,
-      value: 1
+import { VantComponent } from '../common/component';
+VantComponent({
+    field: true,
+    classes: [
+        'input-class',
+        'plus-class',
+        'minus-class'
+    ],
+    props: {
+        value: null,
+        integer: Boolean,
+        disabled: Boolean,
+        inputWidth: String,
+        asyncChange: Boolean,
+        disableInput: Boolean,
+        min: {
+            type: null,
+            value: 1
+        },
+        max: {
+            type: null,
+            value: Number.MAX_SAFE_INTEGER
+        },
+        step: {
+            type: null,
+            value: 1
+        }
     },
-    max: {
-      type: null,
-      value: MAX
+    computed: {
+        minusDisabled() {
+            return this.data.disabled || this.data.value <= this.data.min;
+        },
+        plusDisabled() {
+            return this.data.disabled || this.data.value >= this.data.max;
+        }
     },
-    step: {
-      type: null,
-      value: 1
+    watch: {
+        value(value) {
+            if (value === '') {
+                return;
+            }
+            const newValue = this.range(value);
+            if (typeof newValue === 'number' && value !== newValue) {
+                this.set({ value: newValue });
+            }
+        }
+    },
+    data: {
+        focus: false
+    },
+    created() {
+        this.set({
+            value: this.range(this.data.value)
+        });
+    },
+    methods: {
+        onFocus(event) {
+            this.$emit('focus', event.detail);
+        },
+        onBlur(event) {
+            const value = this.range(this.data.value);
+            this.triggerInput(value);
+            this.$emit('blur', event.detail);
+        },
+        // limit value range
+        range(value) {
+            return Math.max(Math.min(this.data.max, value), this.data.min);
+        },
+        onInput(event) {
+            const { value = '' } = event.detail || {};
+            this.triggerInput(value);
+        },
+        onChange(type) {
+            if (this.data[`${type}Disabled`]) {
+                this.$emit('overlimit', type);
+                return;
+            }
+            const diff = type === 'minus' ? -this.data.step : +this.data.step;
+            const value = Math.round((this.data.value + diff) * 100) / 100;
+            this.triggerInput(this.range(value));
+            this.$emit(type);
+        },
+        onMinus() {
+            this.onChange('minus');
+        },
+        onPlus() {
+            this.onChange('plus');
+        },
+        triggerInput(value) {
+            this.set({
+                value: this.data.asyncChange ? this.data.value : value
+            });
+            this.$emit('change', value);
+        }
     }
-  },
-
-  attached() {
-    this.setData({
-      value: this.range(this.data.value)
-    });
-  },
-
-  methods: {
-    // limit value range
-    range(value) {
-      return Math.max(Math.min(this.data.max, value), this.data.min);
-    },
-
-    onInput(event) {
-      const { value = '' } = event.detail || {};
-      this.triggerInput(value);
-    },
-
-    onChange(type) {
-      if (this[`${type}Disabled`]) {
-        this.$emit('overlimit', type);
-        return;
-      }
-
-      const diff = type === 'minus' ? -this.data.step : +this.data.step;
-      const value = Math.round((this.data.value + diff) * 100) / 100;
-      this.triggerInput(this.range(value));
-      this.$emit(type);
-    },
-
-    onBlur(event) {
-      const value = this.range(this.data.value);
-      this.triggerInput(value);
-      this.$emit('blur', event);
-    },
-
-    onMinus() {
-      this.onChange('minus');
-    },
-
-    onPlus() {
-      this.onChange('plus');
-    },
-
-    triggerInput(value) {
-      this.setData({ value });
-      this.$emit('change', value);
-    }
-  }
 });

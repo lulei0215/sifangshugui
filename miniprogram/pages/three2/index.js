@@ -23,9 +23,18 @@ Page({
     var that = this;
     var id = e.target.id;
     var nowdate = that.data.nowdate;
-    wx.redirectTo({
-      url: '/pages/three3/index?id='+id+'&nowdate='+nowdate,
-    })
+    if(id == 32){
+      console.log(32)
+      wx.navigateTo({
+        url: '/pages/index/index?id=' + id + '&nowdate=' + nowdate,
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/three3/index?id=' + id + '&nowdate=' + nowdate,
+      })
+    }
+    
+  
   },
   onChange(event) {
     var that = this;
@@ -92,6 +101,7 @@ hehe: function () {
   },
 
   formSubmit: function (e) {
+    var that = this
     console.log(e)
    var id = this.data.id;
    var nowdate = this.data.nowdate;
@@ -110,14 +120,19 @@ hehe: function () {
         wx.showToast({
           title: '添加成功',
           icon: 'success',
-          duration: 2000
+          duration: 1000
+        })
+        var shiqings = that.data.shiqing;
+        shiqings.push({'shiqing':shiqing})
+        that.setData({
+          shiqing:shiqings
         })
       } else {
         console.log('0')
         wx.showToast({
           title: '失败请重试',
           icon: 'fail',
-          duration: 2000
+          duration: 1000
         })
       }
     }, function (data) {

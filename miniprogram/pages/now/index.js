@@ -14,7 +14,60 @@ Page({
    */
   data: {
     nowdate:[],
-    datas:[]
+    datas:[],
+    sort:1
+  },
+  shun:function(){
+    var sort = this.data.sort;
+    if(sort != 1){
+      var nowdate = this.nowdate();
+      var that = this;
+      var url = pathUrl + '/wxnows';
+      service.http(url, {
+        'nowdata': nowdate,
+        'nowdata7': nowdate
+      }, function (data) {
+        console.log(data)
+        var data = data.data;
+        that.setData({
+          datas: data.datas,
+          sort:1
+        })
+        console.log(data)
+
+      }, function (data) {
+        wx.showToast({
+          title: '网络故障,请重新打开'
+        });
+        console.log(data);
+      })
+    }
+  },
+  fan:function(){
+    var sort = this.data.sort;
+    if (sort == 1) {
+      var nowdate = this.nowdate();
+      var that = this;
+      var url = pathUrl + '/wxnowss';
+      service.http(url, {
+        'nowdata': nowdate,
+        'nowdata7': nowdate
+      }, function (data) {
+        console.log(data)
+        var data = data.data;
+        that.setData({
+          datas: data.datas,
+          sort:2
+        })
+        console.log(data)
+
+      }, function (data) {
+        wx.showToast({
+          title: '网络故障,请重新打开'
+        });
+        console.log(data);
+      })
+    } 
   },
   nowdate: function () {
   

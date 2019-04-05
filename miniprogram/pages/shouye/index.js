@@ -25,7 +25,7 @@ data: {
   },
   selectDate: function (e) {
     console.log(e.detail.date)
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/three/index?date=' + e.detail.date,
     })
   },
@@ -262,7 +262,7 @@ data: {
               console.log('获取信息成功9999999');
               console.log(res.data)
               if (res.data.err_code == '003') {
-                wx.redirectTo({
+                wx.navigateTo({
                   url: '/pages/zhuce/index',
                 })
                 // that.getuserInfo(that);

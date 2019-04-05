@@ -13,6 +13,7 @@
     "van-button": "../../dist/button/index",
     "van-panel": "../../dist/panel/index",
     "van-notify": "../../dist/notify/index",
-    "van-transition": "../../dist/transition/index"
+    "van-transition": "../../dist/transition/index",
+    "van-icon": "../../dist/icon/index"
   }
 }

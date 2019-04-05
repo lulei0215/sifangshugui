@@ -1,37 +1,32 @@
-import { create } from '../common/create';
-
-create({
-  props: {
-    info: null,
-    icon: String,
-    dot: Boolean
-  },
-
-  relations: {
-    '../tabbar/index': {
-      type: 'ancestor'
-    }
-  },
-
-  data: {
-    active: false,
-    count: 0
-  },
-
-  methods: {
-    onClick() {
-      const parent = this.getRelationNodes('../tabbar/index')[0];
-      if (parent) {
-        parent.onChange(this);
-      }
-      this.$emit('click');
+import { VantComponent } from '../common/component';
+VantComponent({
+    props: {
+        info: null,
+        icon: String,
+        dot: Boolean
     },
-
-    setActive(data) {
-      const { active, count } = this.data;
-      if (active !== data.active || count !== data.count) {
-        this.setData(data);
-      }
+    relation: {
+        name: 'tabbar',
+        type: 'ancestor',
+        linked(target) {
+            this.parent = target;
+        }
+    },
+    data: {
+        active: false
+    },
+    methods: {
+        onClick() {
+            if (this.parent) {
+                this.parent.onChange(this);
+            }
+            this.$emit('click');
+        },
+        setActive({ active, color }) {
+            if (this.data.active !== active) {
+                return this.set({ active, color });
+            }
+            return Promise.resolve();
+        }
     }
-  }
 });

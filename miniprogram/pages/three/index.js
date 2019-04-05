@@ -27,7 +27,7 @@ Page({
     var that = this;
     console.log(e.target.id)
     var nowdate = that.data.nowdate;
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/three2/index?id=' + e.target.id+'&nowdate='+nowdate,
     })
   },

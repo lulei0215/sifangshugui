@@ -11,6 +11,8 @@
 	"appid": "wx75226a161df82e93",
 	"projectname": "%E5%8A%9F%E8%BF%87",
 	"libVersion": "2.5.0",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -97,6 +99,28 @@
 					"id": -1,
 					"name": "今日数据",
 					"pathName": "pages/now/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/shouye/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "3个页面",
+					"pathName": "pages/three/index",
+					"query": "id=1&nowdate=2018-09-09",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "每个Q1",
+					"pathName": "pages/three2/index",
+					"query": "id=1&nowdate=2018-09-09",
 					"scene": null
 				}
 			]

@@ -1,0 +1,5 @@
+<view class='body'>
+    <view class="three" bindtap='click' id='1'>Q1: 别人为我做了什么 ？</view>
+     <view class="three" bindtap='click' id='2'>Q2: 我为别人做了什么 ？</view>
+      <view class="three" bindtap='click' id='3'>Q3: 我给别人添了什么麻烦 ？</view>
+</view>

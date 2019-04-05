@@ -1,4 +1,4 @@
-<view class="t-center" style="font-size:50rpx;">24条分期排序表</view>
+<view class="t-center" style="font-size:40rpx;">24条分期排序表</view>
 <view class="containers">
 <view>请选择时间进行搜索</view>
   <view style="float:left" class="b50">
@@ -13,7 +13,7 @@
         {{date}}
       </view>
     </picker>
-    <button bindtap='serch' data-id='1'>搜索</button>
+    <button style='font-size:30rpx' bindtap='serch' data-id='1'>搜索</button>
     <view style="width:99%;">
       <view style="width:50%;display:inline-block;text-align:center;">项目编号</view>
       <view style="width:50%;display:inline-block;text-align:center;">分数</view>
@@ -45,7 +45,7 @@
         {{date3}}
       </view>
     </picker>
-   <button bindtap='serch'  data-id='2'>搜索</button>
+   <button bindtap='serch' style='font-size:30rpx'  data-id='2'>搜索</button>
     <view style="width:99%;">
       <view style="width:50%;display:inline-block;text-align:center;">项目编号</view>
       <view style="width:50%;display:inline-block;text-align:center;">分数</view>

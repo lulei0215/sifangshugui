@@ -1,0 +1,26 @@
+<!--pages/shouye/index.wxml-->
+<calendar 
+ bindselectDate='selectDate'
+cur-year="{{curYear}}"
+cur-month="{{curMonth}}" 
+day="{{day}}" 
+header_show='{{header_show}}' 
+prev='{{prev}}' 
+next='{{next}}' 
+appear='{{appear}}'
+circle_show='{{circle_show}}'
+/>
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="{{shows==1?'shows':''}}">
+  <view class="weui_dialog_confirm" style="position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;z-index:999;background-color:rgba(0,0,0,0.5);">
+    <view class="weui_mask"></view>
+    <view class="weui_dialog" style="opacity:0.7;">
+      <view class="weui_dialog_hd">
+        <strong class="weui_dialog_title">提示</strong>
+      </view>
+      <view class="weui_dialog_bd" style="font-color:black;">为使您能正常享受自我审视24条服务,需要您进行授权,请点击授权登录-再选择允许</view>
+      <view class="weui_dialog_ft">
+        <a href="javascript:;" class="weui_btn_dialog default">授权登录</a>
+      </view>
+    </view>
+  </view>
+</button>
